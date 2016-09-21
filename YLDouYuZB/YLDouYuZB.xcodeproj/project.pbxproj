@@ -20,6 +20,8 @@
 		1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D31D91364E0018518E /* YLMainViewController.swift */; };
 		1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */; };
 		1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */; };
+		790CDBB61D92500E00ADBE04 /* YLPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */; };
+		790CDBB81D92561800ADBE04 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790CDBB71D92561800ADBE04 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		1F6D29D31D91364E0018518E /* YLMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMainViewController.swift; sourceTree = "<group>"; };
 		1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLHomeViewController.swift; sourceTree = "<group>"; };
 		1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLPageTitleView.swift; path = YLDouYuZB/Classes/Main/Controller/YLPageTitleView.swift; sourceTree = SOURCE_ROOT; };
+		790CDBB71D92561800ADBE04 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,7 @@
 		1F6D29BF1D912AEB0018518E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6D29C51D912AEB0018518E /* Extension */,
+				790CDBB71D92561800ADBE04 /* Common.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -464,8 +470,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */,
+				790CDBB61D92500E00ADBE04 /* YLPageTitleView.swift in Sources */,
 				1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */,
 				1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */,
+				790CDBB81D92561800ADBE04 /* Common.swift in Sources */,
 				1F6D29821D91249D0018518E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
