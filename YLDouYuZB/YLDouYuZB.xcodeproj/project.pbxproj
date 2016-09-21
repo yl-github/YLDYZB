@@ -17,7 +17,9 @@
 		1F6D29C91D9130480018518E /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6D29C81D9130480018518E /* Live.storyboard */; };
 		1F6D29CB1D9130AD0018518E /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6D29CA1D9130AD0018518E /* Follow.storyboard */; };
 		1F6D29CF1D9131530018518E /* Proflie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6D29CE1D9131530018518E /* Proflie.storyboard */; };
-		1F6D29D11D91329D0018518E /* YLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D01D91329D0018518E /* YLMainViewController.swift */; };
+		1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D31D91364E0018518E /* YLMainViewController.swift */; };
+		1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */; };
+		1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,9 @@
 		1F6D29C81D9130480018518E /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Live.storyboard; path = YLDouYuZB/Classes/Live/Controller/Live.storyboard; sourceTree = SOURCE_ROOT; };
 		1F6D29CA1D9130AD0018518E /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Follow.storyboard; path = YLDouYuZB/Classes/Follow/Controller/Follow.storyboard; sourceTree = SOURCE_ROOT; };
 		1F6D29CE1D9131530018518E /* Proflie.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Proflie.storyboard; path = YLDouYuZB/Classes/Profile/Controller/Proflie.storyboard; sourceTree = SOURCE_ROOT; };
-		1F6D29D01D91329D0018518E /* YLMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMainViewController.swift; sourceTree = "<group>"; };
+		1F6D29D31D91364E0018518E /* YLMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMainViewController.swift; sourceTree = "<group>"; };
+		1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLHomeViewController.swift; sourceTree = "<group>"; };
+		1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,10 +184,9 @@
 		1F6D29B41D912AEA0018518E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29C61D912FDB0018518E /* Home.storyboard */,
-				1F6D29B51D912AEA0018518E /* Controller */,
 				1F6D29B61D912AEA0018518E /* Model */,
 				1F6D29B71D912AEA0018518E /* View */,
+				1F6D29B51D912AEA0018518E /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -191,6 +194,8 @@
 		1F6D29B51D912AEA0018518E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1F6D29C61D912FDB0018518E /* Home.storyboard */,
+				1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,10 +217,9 @@
 		1F6D29B81D912AEB0018518E /* Live */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29C81D9130480018518E /* Live.storyboard */,
-				1F6D29B91D912AEB0018518E /* Controller */,
 				1F6D29BA1D912AEB0018518E /* Model */,
 				1F6D29BB1D912AEB0018518E /* View */,
+				1F6D29B91D912AEB0018518E /* Controller */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -223,6 +227,7 @@
 		1F6D29B91D912AEB0018518E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1F6D29C81D9130480018518E /* Live.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,20 +249,11 @@
 		1F6D29BC1D912AEB0018518E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29851D91249D0018518E /* Main.storyboard */,
-				1F6D29D01D91329D0018518E /* YLMainViewController.swift */,
-				1F6D29BD1D912AEB0018518E /* Controller */,
 				1F6D29BE1D912AEB0018518E /* Model */,
 				1F6D29BF1D912AEB0018518E /* View */,
+				1F6D29D21D91364E0018518E /* Controller */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		1F6D29BD1D912AEB0018518E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		1F6D29BE1D912AEB0018518E /* Model */ = {
@@ -277,10 +273,9 @@
 		1F6D29C01D912AEB0018518E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29CE1D9131530018518E /* Proflie.storyboard */,
-				1F6D29C11D912AEB0018518E /* Controller */,
 				1F6D29C21D912AEB0018518E /* Model */,
 				1F6D29C31D912AEB0018518E /* View */,
+				1F6D29C11D912AEB0018518E /* Controller */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -288,6 +283,7 @@
 		1F6D29C11D912AEB0018518E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1F6D29CE1D9131530018518E /* Proflie.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -317,8 +313,18 @@
 		1F6D29C51D912AEB0018518E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		1F6D29D21D91364E0018518E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1F6D29851D91249D0018518E /* Main.storyboard */,
+				1F6D29D31D91364E0018518E /* YLMainViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,7 +463,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6D29D11D91329D0018518E /* YLMainViewController.swift in Sources */,
+				1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */,
+				1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */,
+				1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */,
 				1F6D29821D91249D0018518E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,7 +508,7 @@
 				1F6D29861D91249D0018518E /* Base */,
 			);
 			name = Main.storyboard;
-			path = ../..;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		1F6D298A1D91249D0018518E /* LaunchScreen.storyboard */ = {
