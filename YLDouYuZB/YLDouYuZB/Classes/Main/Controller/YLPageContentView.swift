@@ -13,13 +13,13 @@ class YLPageContentView: UIView {
     
     // MARK:- 定义属性,来保存传进来的内容
     private var childVcs: [UIViewController];
-    private var parentViewControlle: UIViewController
+    private weak var parentViewControlle: UIViewController?
     
     // MARK:- 懒加载属性
-    private lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {[weak self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout();
-        layout.itemSize = self.bounds.size;
+        layout.itemSize = (self?.bounds.size)!;
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = 0;
         layout.scrollDirection = .Horizontal;
@@ -36,7 +36,7 @@ class YLPageContentView: UIView {
     }();
     
     // MARK:- 自定义构造函数
-    init(frame: CGRect,childVcs: [UIViewController],parentViewControlle: UIViewController) {
+    init(frame: CGRect,childVcs: [UIViewController],parentViewControlle: UIViewController?) {
         
         self.childVcs = childVcs;
         self.parentViewControlle = parentViewControlle;
@@ -58,7 +58,7 @@ extension YLPageContentView {
     private func setupUI(){
         // 1.将所欲的子控制器添加到父控制器当中
         for childVc in childVcs{
-            parentViewControlle.addChildViewController(childVc);
+            parentViewControlle?.addChildViewController(childVc);
         }
         
         // 2.添加UICollectionView，用于在cell中存放控制器的View
@@ -86,8 +86,13 @@ extension YLPageContentView:UICollectionViewDataSource {
     }
 }
 
-
-
+// MRAK:- 对外暴露的方法
+extension YLPageContentView{
+    func setCurrentIndex(currentIndex : Int){
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width;
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false);
+    }
+}
 
 
 

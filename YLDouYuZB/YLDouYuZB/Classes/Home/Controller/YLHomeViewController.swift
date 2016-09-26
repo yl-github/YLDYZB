@@ -10,14 +10,15 @@ import UIKit
 private let kTitleViewH : CGFloat = 40;
 class YLHomeViewController: UIViewController {
     // 懒加载属性  -- ()闭包
-    private lazy var pageTitleView:YLPageTitleView = {
+    private lazy var pageTitleView:YLPageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y:kStatusBarH + kNavigationBarH , width: kScreenW, height: kTitleViewH);
         let titles = ["推荐","游戏","娱乐","趣玩"];
         let titleView = YLPageTitleView(frame: titleFrame, titles: titles);
+        titleView.delegate = self;
         return titleView;
     }();
     
-    private lazy var pageContentView:YLPageContentView = {
+    private lazy var pageContentView:YLPageContentView = {[weak self] in
         // 1.确定内容页面的Frame
         let contentViewH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH;
         let contentViewFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentViewH);
@@ -115,3 +116,14 @@ extension YLHomeViewController {
     }
     
 }
+
+// MRAK:- 遵守PageTitleViewDelegate协议
+extension YLHomeViewController : YLPageTitleViewDelegate {
+    func pageTitleView(titleView: YLPageTitleView, selectedIndex index: Int) {
+        pageContentView.setCurrentIndex(index);
+    }
+}
+
+
+
+

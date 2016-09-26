@@ -7,12 +7,19 @@
 //
 
 import UIKit
+// 写 :class 主要是表示只想让类遵守这个协议
+protocol YLPageTitleViewDelegate : class {
+    // 其中selectedIndex是表示一个外部参数，index则表示一个内部参数
+    func pageTitleView(titleView : YLPageTitleView,selectedIndex index : Int);
+}
 private let kScrollLineH : CGFloat = 2;
 
 class YLPageTitleView: UIView {
 
-    // 定义属性
+    // 定义属性 -- 这里的定义属性，相当于OC中的@property(strong,)定义属性
+    private var currentIndex : Int = 0;
     private var titles:[String];
+    weak var delegate : YLPageTitleViewDelegate?
     
     // 懒加载属性
     private lazy var titleScrollView:UIScrollView = {
@@ -87,6 +94,12 @@ extension YLPageTitleView{
             // 4.将label添加到scrollView中
             titleScrollView.addSubview(label);
             titleLabels.append(label);
+            
+            // 5.给label添加手势可以进行交互
+            label.userInteractionEnabled = true;
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleLabelClick(_:)));
+            label.addGestureRecognizer(tapGes);
+            
         }
     }
     
@@ -109,3 +122,52 @@ extension YLPageTitleView{
         scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH);
     }
 }
+
+//MARK:- 监听label的点击
+extension YLPageTitleView{
+    // 使用事件处理的时候前面要加上@objc
+    @objc private func titleLabelClick(tapGes : UITapGestureRecognizer){
+        // 1.获取当前Label
+        guard let currentLabel = tapGes.view as? UILabel else {return};
+        
+        // 2.获取之前的Label
+        let afterLabel = titleLabels[currentIndex];
+        
+        // 3.更改label的字体颜色
+        currentLabel.textColor = UIColor.orangeColor();
+        afterLabel.textColor = UIColor.grayColor();
+        
+        // 4.保存最新的label下标值
+        currentIndex = currentLabel.tag;
+        
+        // 5.滚动条位置发生改变
+        let scrollLineX = CGFloat(currentIndex) * scrollLine.frame.size.width;
+        UIView.animateWithDuration(0.15) {
+            self.scrollLine.frame.origin.x = scrollLineX;
+        }
+        
+        // 6.通知代理做事情
+        delegate?.pageTitleView(self, selectedIndex: currentIndex);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
