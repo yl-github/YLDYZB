@@ -17,6 +17,25 @@ class YLHomeViewController: UIViewController {
         return titleView;
     }();
     
+    private lazy var pageContentView:YLPageContentView = {
+        // 1.确定内容页面的Frame
+        let contentViewH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH;
+        let contentViewFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentViewH);
+        
+        // 2.添加所有的子控制器
+        var childVcs = [UIViewController]();
+        for _ in 0..<4{
+            let vc = UIViewController();
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)));
+            childVcs.append(vc);
+        }
+        
+        let pageContentView = YLPageContentView(frame: contentViewFrame, childVcs: childVcs, parentViewControlle: self);
+        
+        return pageContentView;
+    }();
+    
+    
     // 系统的回调函数
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +56,10 @@ extension YLHomeViewController {
         
         // 2. 添加titleView
         view.addSubview(pageTitleView);
+        
+        // 3. 添加pageContentView
+        pageContentView.backgroundColor = UIColor.redColor();
+        view.addSubview(pageContentView);
         
     }
     private func setupNavigationBar(){

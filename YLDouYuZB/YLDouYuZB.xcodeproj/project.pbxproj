@@ -22,6 +22,8 @@
 		1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */; };
 		790CDBB61D92500E00ADBE04 /* YLPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */; };
 		790CDBB81D92561800ADBE04 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790CDBB71D92561800ADBE04 /* Common.swift */; };
+		7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */; };
+		7931DCBE1D98F4DB00E6ABD6 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 		790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLPageTitleView.swift; path = YLDouYuZB/Classes/Main/Controller/YLPageTitleView.swift; sourceTree = SOURCE_ROOT; };
 		790CDBB71D92561800ADBE04 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLPageContentView.swift; path = YLDouYuZB/Classes/Main/Controller/YLPageContentView.swift; sourceTree = SOURCE_ROOT; };
+		7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */,
+				7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */,
+				7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -470,10 +476,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */,
+				7931DCBE1D98F4DB00E6ABD6 /* UIColor-Extension.swift in Sources */,
 				790CDBB61D92500E00ADBE04 /* YLPageTitleView.swift in Sources */,
 				1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */,
 				1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */,
 				790CDBB81D92561800ADBE04 /* Common.swift in Sources */,
+				7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */,
 				1F6D29821D91249D0018518E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
