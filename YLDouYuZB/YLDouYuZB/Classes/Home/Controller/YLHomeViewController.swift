@@ -10,7 +10,7 @@ import UIKit
 private let kTitleViewH : CGFloat = 40;
 class YLHomeViewController: UIViewController {
     // 懒加载属性  -- ()闭包
-    private lazy var pageTitleView:YLPageTitleView = {[weak self] in
+    private lazy var pageTitleView : YLPageTitleView = {[weak self] in
         let titleFrame = CGRect(x: 0, y:kStatusBarH + kNavigationBarH , width: kScreenW, height: kTitleViewH);
         let titles = ["推荐","游戏","娱乐","趣玩"];
         let titleView = YLPageTitleView(frame: titleFrame, titles: titles);
@@ -18,21 +18,22 @@ class YLHomeViewController: UIViewController {
         return titleView;
     }();
     
-    private lazy var pageContentView:YLPageContentView = {[weak self] in
+    private lazy var pageContentView : YLPageContentView = {[weak self] in
         // 1.确定内容页面的Frame
         let contentViewH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH;
         let contentViewFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentViewH);
         
         // 2.添加所有的子控制器
         var childVcs = [UIViewController]();
-        for _ in 0..<4{
+        for _ in 0..<4 {
             let vc = UIViewController();
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)));
             childVcs.append(vc);
         }
-        
+    
         let pageContentView = YLPageContentView(frame: contentViewFrame, childVcs: childVcs, parentViewControlle: self);
-        
+        pageContentView.delegate = self;
+    
         return pageContentView;
     }();
     
@@ -124,6 +125,11 @@ extension YLHomeViewController : YLPageTitleViewDelegate {
     }
 }
 
-
+// MARK:- 遵YLPageContentViewDelegate协议
+extension YLHomeViewController : YLPageContentViewDelegate {
+    func pageContentView(contentView: YLPageContentView, progress: CGFloat, beforeTitleIndex: Int, targetTitleIndex: Int) {
+        pageTitleView.setTitleChangeWithProgress(progress, beforeTitleIndex: beforeTitleIndex, targetTitleIndex: targetTitleIndex);
+    }
+}
 
 

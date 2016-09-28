@@ -12,6 +12,7 @@ protocol YLPageTitleViewDelegate : class {
     // 其中selectedIndex是表示一个外部参数，index则表示一个内部参数
     func pageTitleView(titleView : YLPageTitleView,selectedIndex index : Int);
 }
+
 private let kScrollLineH : CGFloat = 2;
 
 class YLPageTitleView: UIView {
@@ -22,7 +23,7 @@ class YLPageTitleView: UIView {
     weak var delegate : YLPageTitleViewDelegate?
     
     // 懒加载属性
-    private lazy var titleScrollView:UIScrollView = {
+    private lazy var titleScrollView : UIScrollView = {
         let scrollView = UIScrollView();
         scrollView.showsHorizontalScrollIndicator = false;
         scrollView.scrollsToTop = false;
@@ -151,7 +152,13 @@ extension YLPageTitleView{
     }
 }
 
-
+// MARK:- 向外面暴露一个接口(方法)
+extension YLPageTitleView {
+    func setTitleChangeWithProgress(progress:CGFloat,beforeTitleIndex:Int,targetTitleIndex:Int){
+        
+        print("progress:\(progress)","beforeTitleIndex:\(beforeTitleIndex)","targetTitleIndex:\(targetTitleIndex)");
+    }
+}
 
 
 
