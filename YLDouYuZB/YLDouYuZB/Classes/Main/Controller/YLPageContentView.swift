@@ -21,6 +21,8 @@ class YLPageContentView: UIView {
     private var childVcs: [UIViewController];
     private weak var parentViewControlle: UIViewController?;
     private var startOffsetX : CGFloat = 0;
+    
+    private var isForbidScrollDelegate : Bool = false;
     // 代理属性
     weak var delegate : YLPageContentViewDelegate?;
     
@@ -104,10 +106,19 @@ extension YLPageContentView:UICollectionViewDelegate {
     
      */
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+       
+        isForbidScrollDelegate = false;
+        
         startOffsetX = scrollView.contentOffset.x;
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        // 0.判断是点击还是滑动（判断是否是点击事件）
+        if isForbidScrollDelegate {
+            return;
+        }
+        
         // 1.定义需要获取到的数据
         var progress : CGFloat = 0;
         var beforeTitleIndex : Int = 0;
@@ -162,6 +173,11 @@ extension YLPageContentView:UICollectionViewDelegate {
 // MRAK:- 对外暴露的方法
 extension YLPageContentView{
     func setCurrentIndex(currentIndex : Int){
+        
+        // 1.记录需要禁止的代理方法
+        isForbidScrollDelegate = true;
+        
+        // 2.contentView滚到正确的位置
         let offsetX = CGFloat(currentIndex) * collectionView.frame.width;
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false);
     }

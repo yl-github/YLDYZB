@@ -7,14 +7,21 @@
 //
 
 import UIKit
+
+// MARK:- 定义协议
 // 写 :class 主要是表示只想让类遵守这个协议
 protocol YLPageTitleViewDelegate : class {
     // 其中selectedIndex是表示一个外部参数，index则表示一个内部参数
     func pageTitleView(titleView : YLPageTitleView,selectedIndex index : Int);
 }
 
+// MARK:- 定义常量
 private let kScrollLineH : CGFloat = 2;
+// 通过元组来设置颜色值
+private let kNormalColor : (CGFloat,CGFloat,CGFloat) = (85,85,85);
+private let kSelectColor : (CGFloat,CGFloat,CGFloat) = (255,128,0);
 
+// MARK:- 定义YLPageTitleView类
 class YLPageTitleView: UIView {
 
     // 定义属性 -- 这里的定义属性，相当于OC中的@property(strong,)定义属性
@@ -85,7 +92,7 @@ extension YLPageTitleView{
             label.text = title;
             label.tag = index;
             label.font = UIFont.systemFontOfSize(16.0);
-            label.textColor = UIColor.darkGrayColor();
+            label.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2);
             label.textAlignment = .Center;
             
             // 3.设置label的frame
@@ -116,7 +123,9 @@ extension YLPageTitleView{
         // 2.1获取第一个label (guard和if else相似，但不同)
         guard let firstLabel = titleLabels.first else{ return };
         
-        firstLabel.textColor = UIColor.orangeColor();
+        // 这里通过元组来确定颜色的值
+        firstLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2);
+        
         // 2.2设置添加scrollLine
         titleScrollView.addSubview(scrollLine);
         
@@ -132,11 +141,11 @@ extension YLPageTitleView{
         guard let currentLabel = tapGes.view as? UILabel else {return};
         
         // 2.获取之前的Label
-        let afterLabel = titleLabels[currentIndex];
+        let beforeLabel = titleLabels[currentIndex];
         
         // 3.更改label的字体颜色
-        currentLabel.textColor = UIColor.orangeColor();
-        afterLabel.textColor = UIColor.grayColor();
+        currentLabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2);
+        beforeLabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2);
         
         // 4.保存最新的label下标值
         currentIndex = currentLabel.tag;
@@ -157,6 +166,32 @@ extension YLPageTitleView {
     func setTitleChangeWithProgress(progress:CGFloat,beforeTitleIndex:Int,targetTitleIndex:Int){
         
         print("progress:\(progress)","beforeTitleIndex:\(beforeTitleIndex)","targetTitleIndex:\(targetTitleIndex)");
+        
+        // 1.取出beforeTitleIndex/targetTitleIndex
+        let beforeLabel = titleLabels[beforeTitleIndex];
+        let targetLabel = titleLabels[targetTitleIndex];
+        
+        // 2.处理滑块的逻辑（根据下面contentView移动的进度，来计算上面label的移动多少）
+        let moveTotalX = targetLabel.frame.origin.x - beforeLabel.frame.origin.x;
+        let titleMoveX = moveTotalX * progress;
+        scrollLine.frame.origin.x = beforeLabel.frame.origin.x + titleMoveX;
+        
+//      // 3.设置字体颜色变化
+//        beforeLabel.textColor = UIColor.grayColor();
+//        targetLabel.textColor = UIColor.orangeColor();
+        
+        // 3.字体颜色的渐变（复杂）  ---  通过元祖用RBG来改变颜色的变化
+        // 3.1首先要拿到灰色改变到橙色的范围 也就是橙色的RBG值 减掉 掉灰色的RGB值
+        let colorRang = (kSelectColor.0 - kNormalColor.0, kSelectColor.1 - kNormalColor.1,kSelectColor.2 - kNormalColor.2);
+        
+        // 3.2由橙色变为灰色
+        beforeLabel.textColor = UIColor(r: kSelectColor.0 - colorRang.0 * progress, g: kSelectColor.1 - colorRang.1 * progress, b: kSelectColor.2 - colorRang.2 * progress);
+        
+        // 3.2因为有progress这个值，所以可以计算出颜色改变的多少（改变字体颜色的值）
+        targetLabel.textColor = UIColor(r: kNormalColor.0 + colorRang.0 * progress, g: kNormalColor.1 + colorRang.1 * progress, b:  kNormalColor.2 + colorRang.2 * progress);
+     
+        // 4.将最新的Index赋值给当前的Index(保存最新的currentIndex)
+        currentIndex = targetTitleIndex;
     }
 }
 
