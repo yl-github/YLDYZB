@@ -24,6 +24,11 @@
 		790CDBB81D92561800ADBE04 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790CDBB71D92561800ADBE04 /* Common.swift */; };
 		7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */; };
 		7931DCBE1D98F4DB00E6ABD6 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */; };
+		794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794452951D9E487500832E2B /* YLRecommendationViewController.swift */; };
+		79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */; };
+		79F5F4231DAA218C00B2E68C /* YLCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */; };
+		79F5F4261DAA2A6800B2E68C /* YLCollectionNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */; };
+		79F5F4271DAA2A6800B2E68C /* YLCollectionNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		790CDBB71D92561800ADBE04 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLPageContentView.swift; path = YLDouYuZB/Classes/Main/Controller/YLPageContentView.swift; sourceTree = SOURCE_ROOT; };
 		7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		794452951D9E487500832E2B /* YLRecommendationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRecommendationViewController.swift; sourceTree = "<group>"; };
+		79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionHeaderView.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionHeaderView.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.xib; sourceTree = SOURCE_ROOT; };
+		79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionNormalCell.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionNormalCell.swift; sourceTree = SOURCE_ROOT; };
+		79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionNormalCell.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionNormalCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +214,7 @@
 			children = (
 				1F6D29C61D912FDB0018518E /* Home.storyboard */,
 				1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */,
+				794452951D9E487500832E2B /* YLRecommendationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,6 +229,8 @@
 		1F6D29B71D912AEA0018518E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */,
+				79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +289,8 @@
 			children = (
 				790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */,
 				7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */,
+				79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */,
+				79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F5F4231DAA218C00B2E68C /* YLCollectionHeaderView.xib in Resources */,
 				1F6D298C1D91249D0018518E /* LaunchScreen.storyboard in Resources */,
 				1F6D29891D91249D0018518E /* Assets.xcassets in Resources */,
 				1F6D29871D91249D0018518E /* Main.storyboard in Resources */,
@@ -451,6 +467,7 @@
 				1F6D29CF1D9131530018518E /* Proflie.storyboard in Resources */,
 				1F6D29C71D912FDB0018518E /* Home.storyboard in Resources */,
 				1F6D29CB1D9130AD0018518E /* Follow.storyboard in Resources */,
+				79F5F4271DAA2A6800B2E68C /* YLCollectionNormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +498,11 @@
 				1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */,
 				1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */,
 				790CDBB81D92561800ADBE04 /* Common.swift in Sources */,
+				79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */,
+				794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */,
 				7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */,
 				1F6D29821D91249D0018518E /* AppDelegate.swift in Sources */,
+				79F5F4261DAA2A6800B2E68C /* YLCollectionNormalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

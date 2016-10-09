@@ -20,12 +20,14 @@ class YLHomeViewController: UIViewController {
     
     private lazy var pageContentView : YLPageContentView = {[weak self] in
         // 1.确定内容页面的Frame
-        let contentViewH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH;
+        let contentViewH = kScreenH - kStatusBarH - kNavigationBarH - kTitleViewH - kTabBarH;
         let contentViewFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH + kTitleViewH, width: kScreenW, height: contentViewH);
         
         // 2.添加所有的子控制器
         var childVcs = [UIViewController]();
-        for _ in 0..<4 {
+        childVcs.append(YLRecommendationViewController());
+        
+        for _ in 0..<3 {
             let vc = UIViewController();
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)));
             childVcs.append(vc);

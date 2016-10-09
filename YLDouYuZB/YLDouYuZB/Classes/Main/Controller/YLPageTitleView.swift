@@ -165,7 +165,7 @@ extension YLPageTitleView{
 extension YLPageTitleView {
     func setTitleChangeWithProgress(progress:CGFloat,beforeTitleIndex:Int,targetTitleIndex:Int){
         
-        print("progress:\(progress)","beforeTitleIndex:\(beforeTitleIndex)","targetTitleIndex:\(targetTitleIndex)");
+//        print("progress:\(progress)","beforeTitleIndex:\(beforeTitleIndex)","targetTitleIndex:\(targetTitleIndex)");
         
         // 1.取出beforeTitleIndex/targetTitleIndex
         let beforeLabel = titleLabels[beforeTitleIndex];
