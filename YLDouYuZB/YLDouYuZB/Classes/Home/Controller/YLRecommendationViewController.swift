@@ -9,10 +9,13 @@
 import UIKit
 private let kMargin : CGFloat = 10;
 private let kItemW : CGFloat = (kScreenW - 3 * kMargin) / 2
-private let kItemH : CGFloat = kItemW * 3 / 4;
-private let kHeaderViewH : CGFloat = 50;
+private let kNormalItemH : CGFloat = kItemW * 3 / 4
+private let kPrettyItemH : CGFloat = kItemW * 4 / 3
+
+private let kHeaderViewH : CGFloat = 50
 
 private let kNormalCellID = "kNormalCellID"
+private let kPrettyCellID = "kPrettyCellID"
 private let kHeaderViewID = "kHeaderViewID"
 
 class YLRecommendationViewController: UIViewController {
@@ -21,7 +24,7 @@ class YLRecommendationViewController: UIViewController {
     private lazy var recommendCollectionView : UICollectionView = {[unowned self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout();
-        layout.itemSize = CGSize(width: kItemW, height: kItemH);
+        layout.itemSize = CGSize(width: kItemW, height: kNormalItemH);
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = kMargin;
         // 设置分区的内边距
@@ -35,6 +38,7 @@ class YLRecommendationViewController: UIViewController {
         
         recommendCollectionView.backgroundColor = UIColor.whiteColor();
         recommendCollectionView.dataSource = self;
+        recommendCollectionView.delegate = self;
         
         // 希望子控件的宽高随着父控件的款高的改变而改变 （或者可以给collectionview做约束）
         recommendCollectionView.autoresizingMask = [.FlexibleHeight,.FlexibleWidth];
@@ -45,6 +49,8 @@ class YLRecommendationViewController: UIViewController {
         // XIB注册
         recommendCollectionView.registerNib(
             UINib(nibName: "YLCollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID);
+        recommendCollectionView.registerNib(
+            UINib(nibName: "YLCollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID);
         
         // 注册区头
 //        // 使用最普通的注册UICollectionReusableView
@@ -71,7 +77,7 @@ extension YLRecommendationViewController {
     }
 }
 
-extension YLRecommendationViewController : UICollectionViewDataSource{
+extension YLRecommendationViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 12;
@@ -85,8 +91,15 @@ extension YLRecommendationViewController : UICollectionViewDataSource{
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        // 1.获取cell
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kNormalCellID, forIndexPath: indexPath);
+        // 1.定义cell
+        var cell : UICollectionViewCell!;
+        
+        // 2.根据分区的不同选择不同的cell
+        if indexPath.section == 1 {
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier(kPrettyCellID, forIndexPath: indexPath);
+        }else {
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier(kNormalCellID, forIndexPath: indexPath);
+        }
         
         return cell;
     }
@@ -96,6 +109,14 @@ extension YLRecommendationViewController : UICollectionViewDataSource{
         let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: kHeaderViewID, forIndexPath: indexPath);
         
         return headerView;
+    }
+    
+    // 这个方法是返回collectionItem的一个大小
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            return CGSize(width: kItemW, height: kPrettyItemH);
+        }
+        return CGSize(width: kItemW, height: kNormalItemH);
     }
 
 }

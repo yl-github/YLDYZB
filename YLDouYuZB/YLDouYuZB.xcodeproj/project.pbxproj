@@ -29,6 +29,8 @@
 		79F5F4231DAA218C00B2E68C /* YLCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */; };
 		79F5F4261DAA2A6800B2E68C /* YLCollectionNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */; };
 		79F5F4271DAA2A6800B2E68C /* YLCollectionNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */; };
+		79F5F42A1DAA41EA00B2E68C /* YLCollectionPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4281DAA41EA00B2E68C /* YLCollectionPrettyCell.swift */; };
+		79F5F42B1DAA41EA00B2E68C /* YLCollectionPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4291DAA41EA00B2E68C /* YLCollectionPrettyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionHeaderView.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.xib; sourceTree = SOURCE_ROOT; };
 		79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionNormalCell.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionNormalCell.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionNormalCell.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionNormalCell.xib; sourceTree = SOURCE_ROOT; };
+		79F5F4281DAA41EA00B2E68C /* YLCollectionPrettyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionPrettyCell.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionPrettyCell.swift; sourceTree = SOURCE_ROOT; };
+		79F5F4291DAA41EA00B2E68C /* YLCollectionPrettyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionPrettyCell.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionPrettyCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +295,8 @@
 				7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */,
 				79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */,
 				79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */,
+				79F5F4281DAA41EA00B2E68C /* YLCollectionPrettyCell.swift */,
+				79F5F4291DAA41EA00B2E68C /* YLCollectionPrettyCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				1F6D298C1D91249D0018518E /* LaunchScreen.storyboard in Resources */,
 				1F6D29891D91249D0018518E /* Assets.xcassets in Resources */,
 				1F6D29871D91249D0018518E /* Main.storyboard in Resources */,
+				79F5F42B1DAA41EA00B2E68C /* YLCollectionPrettyCell.xib in Resources */,
 				1F6D29C91D9130480018518E /* Live.storyboard in Resources */,
 				1F6D29CF1D9131530018518E /* Proflie.storyboard in Resources */,
 				1F6D29C71D912FDB0018518E /* Home.storyboard in Resources */,
@@ -500,6 +507,7 @@
 				790CDBB81D92561800ADBE04 /* Common.swift in Sources */,
 				79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */,
 				794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */,
+				79F5F42A1DAA41EA00B2E68C /* YLCollectionPrettyCell.swift in Sources */,
 				7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */,
 				1F6D29821D91249D0018518E /* AppDelegate.swift in Sources */,
 				79F5F4261DAA2A6800B2E68C /* YLCollectionNormalCell.swift in Sources */,
