@@ -137,8 +137,11 @@ extension YLPageTitleView{
 extension YLPageTitleView{
     // 使用事件处理的时候前面要加上@objc
     @objc private func titleLabelClick(tapGes : UITapGestureRecognizer){
-        // 1.获取当前Label
+        // 0.获取当前Label
         guard let currentLabel = tapGes.view as? UILabel else {return};
+        
+        // 1.当一个label重复点击的时候直接跳出
+        if currentLabel.tag == currentIndex { return }
         
         // 2.获取之前的Label
         let beforeLabel = titleLabels[currentIndex];

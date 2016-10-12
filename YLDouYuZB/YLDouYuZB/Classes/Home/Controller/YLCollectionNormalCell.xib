@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -41,7 +41,7 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-VM-l8C">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-VM-l8C">
                         <rect key="frame" x="96" y="92" width="67" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <state key="normal" title="6666在线" image="Image_online"/>
@@ -65,6 +65,12 @@
                 <constraint firstItem="qnR-Mb-8ei" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qrc-mr-Nh0"/>
             </constraints>
             <size key="customSize" width="168" height="140"/>
+            <connections>
+                <outlet property="anchorNameLabel" destination="qtN-eX-adw" id="EIc-oT-Fzt"/>
+                <outlet property="iconImg" destination="qnR-Mb-8ei" id="PPm-hC-FtP"/>
+                <outlet property="onlineNum" destination="FiH-VM-l8C" id="gXV-5y-eMZ"/>
+                <outlet property="roomNameLabel" destination="zNc-i2-LGm" id="mT1-Q0-fG1"/>
+            </connections>
             <point key="canvasLocation" x="353" y="362"/>
         </collectionViewCell>
     </objects>

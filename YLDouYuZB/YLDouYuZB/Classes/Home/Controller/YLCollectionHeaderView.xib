@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="YLCollectionHeaderView" customModule="YLDouYuZB" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -55,6 +55,11 @@
                 <constraint firstItem="yAt-KU-dTr" firstAttribute="leading" secondItem="xLc-se-Q9G" secondAttribute="trailing" constant="5" id="n4K-5L-xT9"/>
                 <constraint firstAttribute="trailing" secondItem="Wg6-T1-1p3" secondAttribute="trailing" constant="10" id="sis-j8-d8K"/>
             </constraints>
+            <connections>
+                <outlet property="headerImg" destination="xLc-se-Q9G" id="Vaf-CK-KR7"/>
+                <outlet property="headerImgView" destination="xLc-se-Q9G" id="Icm-CZ-m3w"/>
+                <outlet property="headerTitleLabel" destination="yAt-KU-dTr" id="Iye-Dv-dHt"/>
+            </connections>
         </collectionReusableView>
     </objects>
     <resources>

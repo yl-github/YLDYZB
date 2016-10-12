@@ -24,13 +24,20 @@
 		790CDBB81D92561800ADBE04 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790CDBB71D92561800ADBE04 /* Common.swift */; };
 		7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */; };
 		7931DCBE1D98F4DB00E6ABD6 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */; };
+		7943042B1DAB3E4C005379C9 /* YLNetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943042A1DAB3E4C005379C9 /* YLNetWorkTools.swift */; };
+		7943042E1DAB60E0005379C9 /* YLRecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943042D1DAB60E0005379C9 /* YLRecommendViewModel.swift */; };
+		794304301DAB6739005379C9 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943042F1DAB6739005379C9 /* NSDate-Extension.swift */; };
+		7943043A1DAB7245005379C9 /* YLAnchorGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794304391DAB7245005379C9 /* YLAnchorGroupModel.swift */; };
+		7943043C1DAB7BD3005379C9 /* YLAnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943043B1DAB7BD3005379C9 /* YLAnchorModel.swift */; };
 		794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794452951D9E487500832E2B /* YLRecommendationViewController.swift */; };
+		79D4D4B11DAE2D77008FAAF7 /* YLCollectionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4D4B01DAE2D77008FAAF7 /* YLCollectionBaseCell.swift */; };
 		79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */; };
 		79F5F4231DAA218C00B2E68C /* YLCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */; };
 		79F5F4261DAA2A6800B2E68C /* YLCollectionNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */; };
 		79F5F4271DAA2A6800B2E68C /* YLCollectionNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */; };
 		79F5F42A1DAA41EA00B2E68C /* YLCollectionPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4281DAA41EA00B2E68C /* YLCollectionPrettyCell.swift */; };
 		79F5F42B1DAA41EA00B2E68C /* YLCollectionPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4291DAA41EA00B2E68C /* YLCollectionPrettyCell.xib */; };
+		C3E5650EF0517C38168CC842 /* Pods_YLDouYuZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7468B7355B7B5CB8C1C7D26 /* Pods_YLDouYuZB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,17 +77,26 @@
 		1F6D29D31D91364E0018518E /* YLMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLMainViewController.swift; sourceTree = "<group>"; };
 		1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLHomeViewController.swift; sourceTree = "<group>"; };
 		1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		2E1FA08B101B39C7623DCD91 /* Pods-YLDouYuZB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLDouYuZB.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLDouYuZB/Pods-YLDouYuZB.release.xcconfig"; sourceTree = "<group>"; };
+		48561886DB0AD8267F1A28D0 /* Pods-YLDouYuZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLDouYuZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLDouYuZB/Pods-YLDouYuZB.debug.xcconfig"; sourceTree = "<group>"; };
 		790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLPageTitleView.swift; path = YLDouYuZB/Classes/Main/Controller/YLPageTitleView.swift; sourceTree = SOURCE_ROOT; };
 		790CDBB71D92561800ADBE04 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLPageContentView.swift; path = YLDouYuZB/Classes/Main/Controller/YLPageContentView.swift; sourceTree = SOURCE_ROOT; };
 		7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		7943042A1DAB3E4C005379C9 /* YLNetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLNetWorkTools.swift; sourceTree = "<group>"; };
+		7943042D1DAB60E0005379C9 /* YLRecommendViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRecommendViewModel.swift; sourceTree = "<group>"; };
+		7943042F1DAB6739005379C9 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
+		794304391DAB7245005379C9 /* YLAnchorGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAnchorGroupModel.swift; sourceTree = "<group>"; };
+		7943043B1DAB7BD3005379C9 /* YLAnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAnchorModel.swift; sourceTree = "<group>"; };
 		794452951D9E487500832E2B /* YLRecommendationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRecommendationViewController.swift; sourceTree = "<group>"; };
+		79D4D4B01DAE2D77008FAAF7 /* YLCollectionBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionBaseCell.swift; path = YLDouYuZB/Classes/Main/Model/YLCollectionBaseCell.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionHeaderView.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionHeaderView.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.xib; sourceTree = SOURCE_ROOT; };
 		79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionNormalCell.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionNormalCell.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionNormalCell.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionNormalCell.xib; sourceTree = SOURCE_ROOT; };
 		79F5F4281DAA41EA00B2E68C /* YLCollectionPrettyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionPrettyCell.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionPrettyCell.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4291DAA41EA00B2E68C /* YLCollectionPrettyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionPrettyCell.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionPrettyCell.xib; sourceTree = SOURCE_ROOT; };
+		F7468B7355B7B5CB8C1C7D26 /* Pods_YLDouYuZB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YLDouYuZB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E5650EF0517C38168CC842 /* Pods_YLDouYuZB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +132,8 @@
 				1F6D29951D91249D0018518E /* YLDouYuZBTests */,
 				1F6D29A01D91249D0018518E /* YLDouYuZBUITests */,
 				1F6D297F1D91249D0018518E /* Products */,
+				AA377F69E575CC17BD34A3DF /* Pods */,
+				599C04EE3569C1975F0F5B09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,7 +225,8 @@
 		1F6D29B41D912AEA0018518E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29B61D912AEA0018518E /* Model */,
+				794304321DAB7178005379C9 /* Model */,
+				7943042C1DAB6078005379C9 /* ViewModel */,
 				1F6D29B71D912AEA0018518E /* View */,
 				1F6D29B51D912AEA0018518E /* Controller */,
 			);
@@ -223,13 +243,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1F6D29B61D912AEA0018518E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		1F6D29B71D912AEA0018518E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,8 +255,8 @@
 		1F6D29B81D912AEB0018518E /* Live */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29BA1D912AEB0018518E /* Model */,
-				1F6D29BB1D912AEB0018518E /* View */,
+				794304331DAB71A1005379C9 /* Model */,
+				794304341DAB71A1005379C9 /* View */,
 				1F6D29B91D912AEB0018518E /* Controller */,
 			);
 			path = Live;
@@ -257,35 +270,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1F6D29BA1D912AEB0018518E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1F6D29BB1D912AEB0018518E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1F6D29BC1D912AEB0018518E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29BE1D912AEB0018518E /* Model */,
+				794304311DAB714E005379C9 /* Model */,
 				1F6D29BF1D912AEB0018518E /* View */,
 				1F6D29D21D91364E0018518E /* Controller */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		1F6D29BE1D912AEB0018518E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1F6D29BF1D912AEB0018518E /* View */ = {
@@ -293,6 +285,7 @@
 			children = (
 				790CDBB51D92500E00ADBE04 /* YLPageTitleView.swift */,
 				7931DCBB1D98ED7A00E6ABD6 /* YLPageContentView.swift */,
+				79D4D4B01DAE2D77008FAAF7 /* YLCollectionBaseCell.swift */,
 				79F5F4241DAA2A6800B2E68C /* YLCollectionNormalCell.swift */,
 				79F5F4251DAA2A6800B2E68C /* YLCollectionNormalCell.xib */,
 				79F5F4281DAA41EA00B2E68C /* YLCollectionPrettyCell.swift */,
@@ -304,8 +297,8 @@
 		1F6D29C01D912AEB0018518E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D29C21D912AEB0018518E /* Model */,
-				1F6D29C31D912AEB0018518E /* View */,
+				794304351DAB71E3005379C9 /* Model */,
+				794304361DAB71E3005379C9 /* View */,
 				1F6D29C11D912AEB0018518E /* Controller */,
 			);
 			path = Profile;
@@ -319,25 +312,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1F6D29C21D912AEB0018518E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1F6D29C31D912AEB0018518E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1F6D29C41D912AEB0018518E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 				1F6D29C51D912AEB0018518E /* Extension */,
 				790CDBB71D92561800ADBE04 /* Common.swift */,
+				7943042A1DAB3E4C005379C9 /* YLNetWorkTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -347,6 +327,7 @@
 			children = (
 				1F6D29D71D913C4C0018518E /* UIBarButtonItem-Extension.swift */,
 				7931DCBD1D98F4DB00E6ABD6 /* UIColor-Extension.swift */,
+				7943042F1DAB6739005379C9 /* NSDate-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -360,6 +341,75 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		599C04EE3569C1975F0F5B09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7468B7355B7B5CB8C1C7D26 /* Pods_YLDouYuZB.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7943042C1DAB6078005379C9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7943042D1DAB60E0005379C9 /* YLRecommendViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		794304311DAB714E005379C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				794304391DAB7245005379C9 /* YLAnchorGroupModel.swift */,
+				7943043B1DAB7BD3005379C9 /* YLAnchorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		794304321DAB7178005379C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		794304331DAB71A1005379C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		794304341DAB71A1005379C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		794304351DAB71E3005379C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		794304361DAB71E3005379C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AA377F69E575CC17BD34A3DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48561886DB0AD8267F1A28D0 /* Pods-YLDouYuZB.debug.xcconfig */,
+				2E1FA08B101B39C7623DCD91 /* Pods-YLDouYuZB.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,9 +417,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F6D29A61D91249D0018518E /* Build configuration list for PBXNativeTarget "YLDouYuZB" */;
 			buildPhases = (
+				6199420DE0D8691A84EE6796 /* [CP] Check Pods Manifest.lock */,
 				1F6D297A1D91249C0018518E /* Sources */,
 				1F6D297B1D91249C0018518E /* Frameworks */,
 				1F6D297C1D91249C0018518E /* Resources */,
+				EF020A1E4050B416782540C3 /* [CP] Embed Pods Frameworks */,
+				D2AF7AA5B41356C2F7779054 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -494,22 +547,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6199420DE0D8691A84EE6796 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D2AF7AA5B41356C2F7779054 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLDouYuZB/Pods-YLDouYuZB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF020A1E4050B416782540C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YLDouYuZB/Pods-YLDouYuZB-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1F6D297A1D91249C0018518E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */,
+				7943043A1DAB7245005379C9 /* YLAnchorGroupModel.swift in Sources */,
+				7943043C1DAB7BD3005379C9 /* YLAnchorModel.swift in Sources */,
 				7931DCBE1D98F4DB00E6ABD6 /* UIColor-Extension.swift in Sources */,
 				790CDBB61D92500E00ADBE04 /* YLPageTitleView.swift in Sources */,
 				1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */,
 				1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */,
+				79D4D4B11DAE2D77008FAAF7 /* YLCollectionBaseCell.swift in Sources */,
 				790CDBB81D92561800ADBE04 /* Common.swift in Sources */,
 				79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */,
 				794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */,
+				7943042B1DAB3E4C005379C9 /* YLNetWorkTools.swift in Sources */,
 				79F5F42A1DAA41EA00B2E68C /* YLCollectionPrettyCell.swift in Sources */,
+				794304301DAB6739005379C9 /* NSDate-Extension.swift in Sources */,
 				7931DCBC1D98ED7A00E6ABD6 /* YLPageContentView.swift in Sources */,
 				1F6D29821D91249D0018518E /* AppDelegate.swift in Sources */,
+				7943042E1DAB60E0005379C9 /* YLRecommendViewModel.swift in Sources */,
 				79F5F4261DAA2A6800B2E68C /* YLCollectionNormalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,6 +758,7 @@
 		};
 		1F6D29A71D91249D0018518E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48561886DB0AD8267F1A28D0 /* Pods-YLDouYuZB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -665,6 +773,7 @@
 		};
 		1F6D29A81D91249D0018518E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E1FA08B101B39C7623DCD91 /* Pods-YLDouYuZB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="150" height="160"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXv-0a-M9N">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXv-0a-M9N">
                         <rect key="frame" x="0.0" y="136" width="45" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="gbO-b7-Zss"/>
@@ -41,23 +41,24 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6666在线" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zf-8m-s0e">
-                        <rect key="frame" x="82" y="5" width="60" height="20"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4H-sd-iba">
+                        <rect key="frame" x="79" y="8" width="68" height="20"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="SB4-ts-j5h"/>
-                            <constraint firstAttribute="width" constant="60" id="pav-Qm-GRQ"/>
+                            <constraint firstAttribute="width" constant="68" id="WCP-hn-NiC"/>
+                            <constraint firstAttribute="height" constant="20" id="XQI-g9-OED"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
+                        <state key="normal" title="6666在线">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
-                    </label>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -67,14 +68,20 @@
                 <constraint firstItem="Nlg-KE-O2z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4Bx-MG-3Y6"/>
                 <constraint firstItem="Nlg-KE-O2z" firstAttribute="top" secondItem="4GJ-Eh-hZB" secondAttribute="bottom" constant="5" id="5tH-6p-YKp"/>
                 <constraint firstItem="4GJ-Eh-hZB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9m0-h3-1O4"/>
-                <constraint firstItem="9Zf-8m-s0e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="DXt-jX-UcE"/>
                 <constraint firstItem="4GJ-Eh-hZB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ESX-Wd-6dZ"/>
                 <constraint firstAttribute="bottom" secondItem="JXv-0a-M9N" secondAttribute="bottom" constant="10" id="QMB-WV-77m"/>
                 <constraint firstItem="JXv-0a-M9N" firstAttribute="top" secondItem="Nlg-KE-O2z" secondAttribute="bottom" constant="4" id="WQz-5H-TqQ"/>
+                <constraint firstAttribute="trailing" secondItem="H4H-sd-iba" secondAttribute="trailing" constant="3" id="aIU-HO-DpX"/>
                 <constraint firstAttribute="trailing" secondItem="Nlg-KE-O2z" secondAttribute="trailing" constant="5" id="hIU-YX-DDj"/>
-                <constraint firstAttribute="trailing" secondItem="9Zf-8m-s0e" secondAttribute="trailing" constant="8" id="ma2-Uq-FWj"/>
+                <constraint firstItem="H4H-sd-iba" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="xh2-TT-WKX"/>
             </constraints>
             <size key="customSize" width="150" height="160"/>
+            <connections>
+                <outlet property="anchorCity" destination="JXv-0a-M9N" id="1Yq-Ez-n0a"/>
+                <outlet property="anchorNameLabel" destination="Nlg-KE-O2z" id="DcW-9z-wWt"/>
+                <outlet property="iconImg" destination="4GJ-Eh-hZB" id="Ta3-Sx-PHL"/>
+                <outlet property="onlineNum" destination="H4H-sd-iba" id="HZ1-b0-R2d"/>
+            </connections>
             <point key="canvasLocation" x="344" y="372"/>
         </collectionViewCell>
     </objects>
