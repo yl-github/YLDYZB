@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YLCollectionCycleCell" customModule="YLDouYuZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="249" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="249" height="100"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_default" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-WG-LKc">
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="100"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN8-od-A4T">
+                        <rect key="frame" x="0.0" y="70" width="249" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YL直播撸代码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1M-aK-Jx5">
+                                <rect key="frame" x="15" y="7" width="81" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R1M-aK-Jx5" firstAttribute="leading" secondItem="EN8-od-A4T" secondAttribute="leading" constant="15" id="23N-ZM-blo"/>
+                            <constraint firstAttribute="height" constant="30" id="EZN-xX-5Xd"/>
+                            <constraint firstItem="R1M-aK-Jx5" firstAttribute="centerY" secondItem="EN8-od-A4T" secondAttribute="centerY" id="HJX-ej-M4q"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="6wg-WG-LKc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="787-uZ-vfZ"/>
+                <constraint firstItem="EN8-od-A4T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PV6-nc-QfA"/>
+                <constraint firstAttribute="trailing" secondItem="6wg-WG-LKc" secondAttribute="trailing" id="VgF-hq-BFz"/>
+                <constraint firstItem="6wg-WG-LKc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bMH-gX-qPH"/>
+                <constraint firstAttribute="bottom" secondItem="6wg-WG-LKc" secondAttribute="bottom" id="pLT-DI-T83"/>
+                <constraint firstAttribute="bottom" secondItem="EN8-od-A4T" secondAttribute="bottom" id="sa4-rh-fSA"/>
+                <constraint firstAttribute="trailing" secondItem="EN8-od-A4T" secondAttribute="trailing" id="vpI-DO-1Gm"/>
+            </constraints>
+            <size key="customSize" width="249" height="100"/>
+            <connections>
+                <outlet property="cycleImg" destination="6wg-WG-LKc" id="CAE-Zx-edX"/>
+                <outlet property="cycleTitleLabel" destination="R1M-aK-Jx5" id="Cvo-Kc-zPW"/>
+            </connections>
+            <point key="canvasLocation" x="434.5" y="338"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Img_default" width="172" height="103"/>
+    </resources>
+</document>

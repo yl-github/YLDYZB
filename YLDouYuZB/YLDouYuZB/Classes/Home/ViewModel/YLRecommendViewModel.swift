@@ -19,7 +19,10 @@ import UIKit
 
 class YLRecommendViewModel {
     //MARK:- 懒加载属性
+    /** 存放推荐数据的数组 */
     lazy var anchorGroupArr : [YLAnchorGroupModel] = [YLAnchorGroupModel]();
+    /** 存放轮播数据的数组 */
+    lazy var cycleArr : [YLCycleModel] = [YLCycleModel]();
     
     // 创建组（Model类型）,将热门和颜值中的数据存放到组的数组当中
     private let hotGroup : YLAnchorGroupModel = YLAnchorGroupModel();
@@ -28,7 +31,7 @@ class YLRecommendViewModel {
 
 //MARK:- 发送网络请求
 extension YLRecommendViewModel {
-    // 发送请求----请求数据
+    // 发送请求----请求推荐页面不带轮播图的数据
     func requestData(finishCallback : ()->()){
         // 0.参数
         let parameters = ["limit" : "4", "offset" : "0", "time" : NSDate.getCurrentTime()];
@@ -119,4 +122,52 @@ extension YLRecommendViewModel {
         }
         
     }
+    
+    // 请求无限轮播图的数据
+    func requestCycleViewData(finishCallback : ()->()){
+        // http://www.douyutv.com/api/v1/slide/6?version=2.303
+        YLNetWorkTools.requestData(.GET, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.303"]) { (request) in
+            
+            // 将request转换成字典类型 (这里因为是选择链，所以校验一下是否有值，没有直接return出去)
+            guard let resultDict = request as? [String : NSObject] else { return }
+            
+            // 根据key值获取data数组 （这里也需要校验一下是否有值）
+            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            
+            // 便利数组得到数据
+            for dict in dataArray {
+                let cycleM = YLCycleModel(dict: dict);
+                self.cycleArr.append(cycleM);
+            }
+            
+            // 告诉外界，已经请求完成 ( 闭包回调)
+            finishCallback();
+        }
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

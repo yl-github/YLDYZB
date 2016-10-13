@@ -11,8 +11,8 @@ private let kMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 3 * kMargin) / 2
 private let kNormalItemH : CGFloat = kItemW * 3 / 4
 private let kPrettyItemH : CGFloat = kItemW * 4 / 3
-
 private let kHeaderViewH : CGFloat = 50
+private let kCycleViewH : CGFloat = kScreenW * 3 / 8
 
 private let kNormalCellID = "kNormalCellID"
 private let kPrettyCellID = "kPrettyCellID"
@@ -65,6 +65,13 @@ class YLRecommendationViewController: UIViewController {
         return recommendCollectionView;
     }();
     
+    //MARK:- 懒加载创建cycleView
+    private lazy var cycleView : YLRecommendCycleView = {
+        let cycleView = YLRecommendCycleView.recommendCycleView();
+        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH);
+        return cycleView;
+    }();
+    
     //MARK:- 系统的回调方法
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +88,13 @@ class YLRecommendationViewController: UIViewController {
 extension YLRecommendationViewController {
     private func setupUI(){
         // 1.将recommendCollectionView添加到View上
-        self.view.addSubview(recommendCollectionView);
+        view.addSubview(recommendCollectionView);
+        
+        // 2.将cycle添加到collectionView上
+        recommendCollectionView.addSubview(cycleView);
+        
+        // 3.设置collectionView的内边距，以显示在上面的轮播图cycleView
+        recommendCollectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0);
     }
 }
 
@@ -89,9 +102,14 @@ extension YLRecommendationViewController {
 extension YLRecommendationViewController {
     // 发送请求
     private func loadNetWorkData(){
-        
+        // 1.请求推荐数据
         recommendViewModel.requestData {
             self.recommendCollectionView.reloadData();
+        }
+        
+        // 2.请求轮播数据
+        recommendViewModel.requestCycleViewData { 
+            self.cycleView.cycleModelArr = self.recommendViewModel.cycleArr
         }
     }
 }

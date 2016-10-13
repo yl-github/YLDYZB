@@ -14,9 +14,9 @@ class YLCollectionBaseCell: UICollectionViewCell {
     @IBOutlet weak var anchorNameLabel: UILabel!
     @IBOutlet weak var onlineNum: UIButton!
     
-    var anchor : YLAnchorModel?{
+    var anchor : YLAnchorModel? {
         didSet{
-            // 这里使用可选链不合适，所以直接校验一下anchor是否有值
+            // 这里使用可选链不合适，所以直接校验一下anchor是否有值，下面就不需要在anchor后面加？号了
             guard let anchor = anchor else { return }
             
             // 1.设置房间封面图片 （这里使用到了一个加载网络图片的第三方Kingfirs）
@@ -37,3 +37,5 @@ class YLCollectionBaseCell: UICollectionViewCell {
         }
     }
 }
+
+

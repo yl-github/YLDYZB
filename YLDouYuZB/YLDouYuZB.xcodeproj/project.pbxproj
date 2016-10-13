@@ -30,6 +30,11 @@
 		7943043A1DAB7245005379C9 /* YLAnchorGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794304391DAB7245005379C9 /* YLAnchorGroupModel.swift */; };
 		7943043C1DAB7BD3005379C9 /* YLAnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943043B1DAB7BD3005379C9 /* YLAnchorModel.swift */; };
 		794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794452951D9E487500832E2B /* YLRecommendationViewController.swift */; };
+		79CC3E3B1DAF1B68004C3560 /* YLRecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC3E3A1DAF1B68004C3560 /* YLRecommendCycleView.swift */; };
+		79CC3E3D1DAF1B83004C3560 /* YLRecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CC3E3C1DAF1B83004C3560 /* YLRecommendCycleView.xib */; };
+		79CC3E3F1DAF5098004C3560 /* YLCycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC3E3E1DAF5098004C3560 /* YLCycleModel.swift */; };
+		79CC3E421DAF61BA004C3560 /* YLCollectionCycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC3E401DAF61BA004C3560 /* YLCollectionCycleCell.swift */; };
+		79CC3E431DAF61BA004C3560 /* YLCollectionCycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CC3E411DAF61BA004C3560 /* YLCollectionCycleCell.xib */; };
 		79D4D4B11DAE2D77008FAAF7 /* YLCollectionBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D4D4B01DAE2D77008FAAF7 /* YLCollectionBaseCell.swift */; };
 		79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */; };
 		79F5F4231DAA218C00B2E68C /* YLCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */; };
@@ -89,6 +94,11 @@
 		794304391DAB7245005379C9 /* YLAnchorGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAnchorGroupModel.swift; sourceTree = "<group>"; };
 		7943043B1DAB7BD3005379C9 /* YLAnchorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAnchorModel.swift; sourceTree = "<group>"; };
 		794452951D9E487500832E2B /* YLRecommendationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRecommendationViewController.swift; sourceTree = "<group>"; };
+		79CC3E3A1DAF1B68004C3560 /* YLRecommendCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLRecommendCycleView.swift; path = YLDouYuZB/Classes/Main/Model/YLRecommendCycleView.swift; sourceTree = SOURCE_ROOT; };
+		79CC3E3C1DAF1B83004C3560 /* YLRecommendCycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLRecommendCycleView.xib; path = YLDouYuZB/Classes/Main/Model/YLRecommendCycleView.xib; sourceTree = SOURCE_ROOT; };
+		79CC3E3E1DAF5098004C3560 /* YLCycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLCycleModel.swift; sourceTree = "<group>"; };
+		79CC3E401DAF61BA004C3560 /* YLCollectionCycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionCycleCell.swift; path = YLDouYuZB/Classes/Home/Model/YLCollectionCycleCell.swift; sourceTree = SOURCE_ROOT; };
+		79CC3E411DAF61BA004C3560 /* YLCollectionCycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionCycleCell.xib; path = YLDouYuZB/Classes/Home/Model/YLCollectionCycleCell.xib; sourceTree = SOURCE_ROOT; };
 		79D4D4B01DAE2D77008FAAF7 /* YLCollectionBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionBaseCell.swift; path = YLDouYuZB/Classes/Main/Model/YLCollectionBaseCell.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionHeaderView.swift; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionHeaderView.xib; path = YLDouYuZB/Classes/Home/Controller/YLCollectionHeaderView.xib; sourceTree = SOURCE_ROOT; };
@@ -248,6 +258,10 @@
 			children = (
 				79F5F4201DAA218C00B2E68C /* YLCollectionHeaderView.swift */,
 				79F5F4211DAA218C00B2E68C /* YLCollectionHeaderView.xib */,
+				79CC3E3A1DAF1B68004C3560 /* YLRecommendCycleView.swift */,
+				79CC3E3C1DAF1B83004C3560 /* YLRecommendCycleView.xib */,
+				79CC3E401DAF61BA004C3560 /* YLCollectionCycleCell.swift */,
+				79CC3E411DAF61BA004C3560 /* YLCollectionCycleCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +383,7 @@
 		794304321DAB7178005379C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				79CC3E3E1DAF5098004C3560 /* YLCycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -524,6 +539,8 @@
 				1F6D29871D91249D0018518E /* Main.storyboard in Resources */,
 				79F5F42B1DAA41EA00B2E68C /* YLCollectionPrettyCell.xib in Resources */,
 				1F6D29C91D9130480018518E /* Live.storyboard in Resources */,
+				79CC3E3D1DAF1B83004C3560 /* YLRecommendCycleView.xib in Resources */,
+				79CC3E431DAF61BA004C3560 /* YLCollectionCycleCell.xib in Resources */,
 				1F6D29CF1D9131530018518E /* Proflie.storyboard in Resources */,
 				1F6D29C71D912FDB0018518E /* Home.storyboard in Resources */,
 				1F6D29CB1D9130AD0018518E /* Follow.storyboard in Resources */,
@@ -603,13 +620,16 @@
 				1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */,
 				7943043A1DAB7245005379C9 /* YLAnchorGroupModel.swift in Sources */,
 				7943043C1DAB7BD3005379C9 /* YLAnchorModel.swift in Sources */,
+				79CC3E3B1DAF1B68004C3560 /* YLRecommendCycleView.swift in Sources */,
 				7931DCBE1D98F4DB00E6ABD6 /* UIColor-Extension.swift in Sources */,
 				790CDBB61D92500E00ADBE04 /* YLPageTitleView.swift in Sources */,
+				79CC3E421DAF61BA004C3560 /* YLCollectionCycleCell.swift in Sources */,
 				1F6D29D41D91364E0018518E /* YLMainViewController.swift in Sources */,
 				1F6D29D81D913C4C0018518E /* UIBarButtonItem-Extension.swift in Sources */,
 				79D4D4B11DAE2D77008FAAF7 /* YLCollectionBaseCell.swift in Sources */,
 				790CDBB81D92561800ADBE04 /* Common.swift in Sources */,
 				79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */,
+				79CC3E3F1DAF5098004C3560 /* YLCycleModel.swift in Sources */,
 				794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */,
 				7943042B1DAB3E4C005379C9 /* YLNetWorkTools.swift in Sources */,
 				79F5F42A1DAA41EA00B2E68C /* YLCollectionPrettyCell.swift in Sources */,
