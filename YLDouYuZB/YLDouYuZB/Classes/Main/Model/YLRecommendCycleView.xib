@@ -25,7 +25,7 @@
                     </connections>
                 </collectionView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="fzG-zU-0an">
-                    <rect key="frame" x="326" y="113" width="39" height="37"/>
+                    <rect key="frame" x="326" y="117" width="39" height="37"/>
                     <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
@@ -34,7 +34,7 @@
                 <constraint firstItem="4k9-EP-c0b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K6J-1M-FdA"/>
                 <constraint firstAttribute="trailing" secondItem="4k9-EP-c0b" secondAttribute="trailing" id="Od0-HZ-YYY"/>
                 <constraint firstItem="4k9-EP-c0b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eRO-Hp-Vd4"/>
-                <constraint firstAttribute="bottom" secondItem="fzG-zU-0an" secondAttribute="bottom" id="gPd-xK-N7a"/>
+                <constraint firstAttribute="bottom" secondItem="fzG-zU-0an" secondAttribute="bottom" constant="-4" id="gPd-xK-N7a"/>
                 <constraint firstAttribute="trailing" secondItem="fzG-zU-0an" secondAttribute="trailing" constant="10" id="l9R-X8-GoP"/>
                 <constraint firstAttribute="bottom" secondItem="4k9-EP-c0b" secondAttribute="bottom" id="zN5-lP-wKr"/>
             </constraints>

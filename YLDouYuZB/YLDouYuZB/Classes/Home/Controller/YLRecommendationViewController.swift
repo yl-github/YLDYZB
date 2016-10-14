@@ -9,10 +9,11 @@
 import UIKit
 private let kMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 3 * kMargin) / 2
-private let kNormalItemH : CGFloat = kItemW * 3 / 4
-private let kPrettyItemH : CGFloat = kItemW * 4 / 3
+private let kNormalItemH = kItemW * 3 / 4
+private let kPrettyItemH = kItemW * 4 / 3
 private let kHeaderViewH : CGFloat = 50
-private let kCycleViewH : CGFloat = kScreenW * 3 / 8
+private let kCycleViewH = kScreenW * 3 / 8
+private let kGameViewH :CGFloat = 90
 
 private let kNormalCellID = "kNormalCellID"
 private let kPrettyCellID = "kPrettyCellID"
@@ -68,8 +69,15 @@ class YLRecommendationViewController: UIViewController {
     //MARK:- 懒加载创建cycleView
     private lazy var cycleView : YLRecommendCycleView = {
         let cycleView = YLRecommendCycleView.recommendCycleView();
-        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH);
+        cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH);
         return cycleView;
+    }();
+    
+    //MARK:- 懒加载创建cycleView
+    private lazy var gameView : YLRecommendGameView = {
+        let gameView = YLRecommendGameView.recommendGameView();
+        gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH);
+        return gameView;
     }();
     
     //MARK:- 系统的回调方法
@@ -93,8 +101,11 @@ extension YLRecommendationViewController {
         // 2.将cycle添加到collectionView上
         recommendCollectionView.addSubview(cycleView);
         
+        // 3.将gameView添加到collectionView上
+        recommendCollectionView.addSubview(gameView);
+        
         // 3.设置collectionView的内边距，以显示在上面的轮播图cycleView
-        recommendCollectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0);
+        recommendCollectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0);
     }
 }
 
@@ -104,7 +115,11 @@ extension YLRecommendationViewController {
     private func loadNetWorkData(){
         // 1.请求推荐数据
         recommendViewModel.requestData {
+            // 1.刷新界面
             self.recommendCollectionView.reloadData();
+            
+            // 2.将数据传递给gamecell
+            self.gameView.anchorGroupMArr = self.recommendViewModel.anchorGroupArr;
         }
         
         // 2.请求轮播数据
@@ -146,12 +161,13 @@ extension YLRecommendationViewController : UICollectionViewDataSource,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+   
         // 1.取出scetion的headerView
         let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: kHeaderViewID, forIndexPath: indexPath) as! YLCollectionHeaderView;
-        
         // 2.给headerView上的控件赋值 (取出模型)
         headerView.group = recommendViewModel.anchorGroupArr[indexPath.section];
         return headerView;
+    
     }
     
     // 这个方法是返回collectionItem的一个大小

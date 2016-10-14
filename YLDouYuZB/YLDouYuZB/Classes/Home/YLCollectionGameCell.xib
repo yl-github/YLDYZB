@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YLCollectionGameCell" customModule="YLDouYuZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="725-1a-3SY">
+                        <rect key="frame" x="16" y="67" width="48" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="GIN-wf-1LM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMG-5o-Aah">
+                        <rect key="frame" x="19" y="15" width="42" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XMG-5o-Aah" secondAttribute="height" multiplier="1:1" id="jgs-ZX-W82"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="XMG-5o-Aah" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EkT-zh-viM"/>
+                <constraint firstItem="XMG-5o-Aah" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="d6f-Ye-dab"/>
+                <constraint firstItem="725-1a-3SY" firstAttribute="top" secondItem="XMG-5o-Aah" secondAttribute="bottom" constant="10" id="gql-9m-XKn"/>
+                <constraint firstAttribute="bottom" secondItem="725-1a-3SY" secondAttribute="bottom" constant="8" id="o4C-CD-lgF"/>
+                <constraint firstItem="725-1a-3SY" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="sd3-b0-4tG"/>
+            </constraints>
+            <connections>
+                <outlet property="iconImageView" destination="XMG-5o-Aah" id="XPm-Fc-vo9"/>
+                <outlet property="titleLabel" destination="725-1a-3SY" id="aFa-OC-HGB"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

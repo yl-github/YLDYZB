@@ -11,6 +11,9 @@ import UIKit
 private let kCycleCellID = "kCycleCellID"
 
 class YLRecommendCycleView: UIView {
+    //MARK:- 定义定时器属性
+    var cycleTimer : NSTimer?
+    
     //MARK:- 定义属性
     var cycleModelArr : [YLCycleModel]? {
         // 当从controller中将模型数据专递到这里的时候，我们需要监听属性的改变
@@ -20,6 +23,14 @@ class YLRecommendCycleView: UIView {
             
             // 2.设置pagecontrol的个数
             pageControl.numberOfPages = cycleModelArr?.count ?? 0;
+            
+            // 3.实现无限轮播的时候设置默认所在的item（防止用户第一次就向前滚动）
+            let indexPath = NSIndexPath(forItem: (cycleModelArr?.count ?? 0) * 10, inSection: 0);
+            collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: false);
+            
+            // 当有数据的时候就添加定时器  （一般情况下为了防止出现问题，我们首先要先移除一下定时器然后在添加）
+            removeCycleTimer();
+            addCycleTimer();
         }
     }
     
@@ -64,12 +75,14 @@ extension YLRecommendCycleView {
 //MARK:- 遵守collectionView的datasource协议
 extension YLRecommendCycleView : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.cycleModelArr?.count ?? 0;
+        // 这里乘以一个10000来实现无限轮播 （相当于很多的item）
+        return (self.cycleModelArr?.count ?? 0) * 10000;
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCycleCellID, forIndexPath: indexPath) as! YLCollectionCycleCell;
-        let cycleModel = cycleModelArr![indexPath.item];
+        // 这里膜上数据的count来防止越界，实现无限轮播
+        let cycleModel = cycleModelArr![indexPath.item % (cycleModelArr?.count ?? 1)];
         cell.cycleModel = cycleModel;
         
         cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.redColor() : UIColor.yellowColor();
@@ -85,7 +98,46 @@ extension YLRecommendCycleView : UICollectionViewDelegate {
         // 1.获取滚动的偏移量
         let offSetX = scrollView.contentOffset.x + scrollView.bounds.width * 0.5;
         
-        // 2.计算pageControl当前的currentIndex
-        pageControl.currentPage = Int(offSetX / scrollView.bounds.width);
+        // 2.计算pageControl当前的currentIndex (%是来实现无限轮播)
+        pageControl.currentPage = Int(offSetX / scrollView.bounds.width) % (cycleModelArr?.count ?? 1);
+    }
+    
+    //MARK:- 处理手动滚动和定时器滚动
+    // 当手动拖拽的时候移除定时器
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        removeCycleTimer();
+    }
+    // 当停止拖拽的时候添加定时器
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        addCycleTimer();
+    }
+}
+
+
+//MARK:- 定时器的一些方法
+extension YLRecommendCycleView {
+    //MARK:- 添加定时器
+    private func addCycleTimer(){
+        cycleTimer = NSTimer(timeInterval: 3.0, target: self, selector: #selector(scrollToNext), userInfo: nil, repeats: true);
+        //MARK:- 一般我们使用到定时器的时候都会将定时器添加到循环池中
+        NSRunLoop.mainRunLoop().addTimer(cycleTimer!, forMode: NSRunLoopCommonModes);
+    }
+    
+    //MARK:- 移除定时器
+    private func removeCycleTimer(){
+        // 移除定时器时，首先要从循环池中移除掉
+        cycleTimer?.invalidate();  // invalidate这个方法是从循环池中移除
+        cycleTimer = nil;
+    
+    }
+    
+    //MARK:- 定时器触发的方法事件
+    @objc func scrollToNext(){
+        // 1.获取滚动的偏移量
+        let currentOffsetX = collectionView.contentOffset.x;
+        let offsetX = currentOffsetX + collectionView.bounds.width;
+        
+        // 2.滚动到该位置
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true);
     }
 }

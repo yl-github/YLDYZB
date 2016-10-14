@@ -54,7 +54,7 @@ extension YLRecommendViewModel {
                 // 3.遍历数组，得到数组中的字典，然后将字典转换成字典模型
                 // 3.1 设置初始值属性
                 self.hotGroup.tag_name = "热门";
-                self.hotGroup.icon_url = "home_header_hot";
+                self.hotGroup.icon_name = "home_header_hot";
                 
                 for dict in dataArray {
                     
@@ -80,7 +80,7 @@ extension YLRecommendViewModel {
             // 3.遍历数组，得到数组中的字典，然后将字典转换成字典模型
             // 3.1 设置初始值属性
             self.prettyGroup.tag_name = "颜值";
-            self.prettyGroup.icon_url = "home_header_phone";
+            self.prettyGroup.icon_name = "home_header_phone";
             
             for dict in dataArray {
                 

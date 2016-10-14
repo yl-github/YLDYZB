@@ -25,7 +25,10 @@ class YLAnchorGroupModel: NSObject {
     var tag_name : String = ""
     
     /** 该组显示的图标 */
-    var icon_url : String = "home_header_normal"
+    var icon_name : String = "home_header_normal"
+    
+    /** 轮播下面的推荐图标 */
+    var icon_url : String = ""
    
     /** 定义主播的对象模型数组 */
     lazy var anchorsArr : [YLAnchorModel] = [YLAnchorModel]();
