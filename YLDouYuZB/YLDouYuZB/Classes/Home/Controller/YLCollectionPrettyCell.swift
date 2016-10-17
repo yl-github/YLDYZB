@@ -20,7 +20,7 @@ class YLCollectionPrettyCell: YLCollectionBaseCell {
             // 1.将模型传递给父类
             super.anchor = anchor;
             // 3.设置主播所在城市
-            anchorCity.setTitle(anchor?.anchor_city, forState: .Normal);
+            anchorCity.setTitle(anchor?.anchor_city, for: UIControlState());
         }
     }
 }

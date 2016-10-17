@@ -15,22 +15,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="英雄联盟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="725-1a-3SY">
-                        <rect key="frame" x="16" y="67" width="48" height="15"/>
+                        <rect key="frame" x="16" y="65" width="48" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="GIN-wf-1LM"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XMG-5o-Aah">
-                        <rect key="frame" x="19" y="15" width="42" height="42"/>
+                        <rect key="frame" x="17" y="15" width="45" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="XMG-5o-Aah" secondAttribute="height" multiplier="1:1" id="jgs-ZX-W82"/>
+                            <constraint firstAttribute="width" secondItem="XMG-5o-Aah" secondAttribute="height" multiplier="1:1" id="hT1-TF-RM7"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="21"/>
+                                <real key="value" value="22.5"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
@@ -39,10 +39,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="XMG-5o-Aah" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EkT-zh-viM"/>
-                <constraint firstItem="XMG-5o-Aah" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="d6f-Ye-dab"/>
-                <constraint firstItem="725-1a-3SY" firstAttribute="top" secondItem="XMG-5o-Aah" secondAttribute="bottom" constant="10" id="gql-9m-XKn"/>
-                <constraint firstAttribute="bottom" secondItem="725-1a-3SY" secondAttribute="bottom" constant="8" id="o4C-CD-lgF"/>
+                <constraint firstItem="XMG-5o-Aah" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="NeU-4F-pjU"/>
+                <constraint firstItem="725-1a-3SY" firstAttribute="top" secondItem="XMG-5o-Aah" secondAttribute="bottom" constant="5" id="fx2-2F-sPc"/>
+                <constraint firstAttribute="bottom" secondItem="725-1a-3SY" secondAttribute="bottom" constant="10" id="o4C-CD-lgF"/>
+                <constraint firstItem="XMG-5o-Aah" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="sOa-FZ-iSq"/>
                 <constraint firstItem="725-1a-3SY" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="sd3-b0-4tG"/>
             </constraints>
             <connections>

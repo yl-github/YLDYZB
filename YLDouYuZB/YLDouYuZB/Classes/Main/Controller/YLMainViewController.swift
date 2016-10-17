@@ -19,7 +19,7 @@ class YLMainViewController: UITabBarController {
         addChildVC("Proflie");
     }
     
-    private func addChildVC(storyboardName : String){
+    fileprivate func addChildVC(_ storyboardName : String){
         
         // 1. 通过storyboard获取控制器
         let childVC = UIStoryboard(name: storyboardName, bundle: nil).instantiateInitialViewController()!;

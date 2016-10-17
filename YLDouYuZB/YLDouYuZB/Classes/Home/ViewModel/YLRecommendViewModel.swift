@@ -25,25 +25,25 @@ class YLRecommendViewModel {
     lazy var cycleArr : [YLCycleModel] = [YLCycleModel]();
     
     // 创建组（Model类型）,将热门和颜值中的数据存放到组的数组当中
-    private let hotGroup : YLAnchorGroupModel = YLAnchorGroupModel();
-    private let prettyGroup : YLAnchorGroupModel = YLAnchorGroupModel();
+    fileprivate let hotGroup : YLAnchorGroupModel = YLAnchorGroupModel();
+    fileprivate let prettyGroup : YLAnchorGroupModel = YLAnchorGroupModel();
 }
 
 //MARK:- 发送网络请求
 extension YLRecommendViewModel {
     // 发送请求----请求推荐页面不带轮播图的数据
-    func requestData(finishCallback : ()->()){
+    func requestData(_ finishCallback : @escaping ()->()){
         // 0.参数
-        let parameters = ["limit" : "4", "offset" : "0", "time" : NSDate.getCurrentTime()];
+        let parameters = ["limit" : "4", "offset" : "0", "time" : Date.getCurrentTime()];
         
         // 1.因为我们现在不确定这三个请求的数据哪个会先请求完成，所以我们在这边创建一个组队列，等三个请求都完成之后我们在对这三个数据进行排序。
-        let dispatchGroup = dispatch_group_create();
+        let dispatchGroup = DispatchGroup();
         
         // 请求开始之前将组队列进入组中
-        dispatch_group_enter(dispatchGroup);
+        dispatchGroup.enter();
         
         // 第一部分：请求推荐数据
-            YLNetWorkTools.requestData(.GET, URLString: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", parameters: ["time" : NSDate.getCurrentTime()]) { (request) in
+            YLNetWorkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", parameters: ["time" : Date.getCurrentTime() as NSString]) { (request) in
                 
                 // 1.这里的reqest是个AnyObject类型,所以要先将request转换成字典
                 guard let dataDict = request as? [String : NSObject] else{ return }
@@ -63,13 +63,13 @@ extension YLRecommendViewModel {
                 }
                 
                 // 4.请求完之后，离开任务组
-                dispatch_group_leave(dispatchGroup);
+                dispatchGroup.leave();
             }
         
         // 请求开始之前将组队列放入当中
-        dispatch_group_enter(dispatchGroup);
+        dispatchGroup.enter();
         // 第二部分：请求颜值数据
-        YLNetWorkTools.requestData(.GET, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters) { (request) in
+        YLNetWorkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters as [String : NSString]?) { (request) in
             
             // 1.这里的reqest是个AnyObject类型,所以要先将request转换成字典
             guard let dataDict = request as? [String : NSObject] else{return}
@@ -89,14 +89,14 @@ extension YLRecommendViewModel {
             }
             
             // 4.求完之后，离开任务组
-            dispatch_group_leave(dispatchGroup);
+            dispatchGroup.leave();
         }
         
         // 请求开始之前将组队列放入当中
-        dispatch_group_enter(dispatchGroup);
+        dispatchGroup.enter();
         // 第三部分：请求其他游戏数据
         // http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1476080122
-        YLNetWorkTools.requestData(.GET, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) { (request) in
+        YLNetWorkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters as [String : NSString]?) { (request) in
             
             // 1.这里的reqest是个AnyObject类型,所以要先将request转换成字典
             guard let dataDict = request as? [String : NSObject] else{return}
@@ -110,13 +110,13 @@ extension YLRecommendViewModel {
                 self.anchorGroupArr.append(groupModel);
             }
             // 4.请求完之后，离开任务组
-            dispatch_group_leave(dispatchGroup);
+            dispatchGroup.leave();
         }
         // 所有的数据都请求到之后，对数据进行一个排序
         // dispatch_group_notify 监听所有的异步请求全部请求到
-        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) { 
-            self.anchorGroupArr.insert(self.prettyGroup, atIndex: 0);
-            self.anchorGroupArr.insert(self.hotGroup, atIndex: 0);
+        dispatchGroup.notify(queue: DispatchQueue.main) { 
+            self.anchorGroupArr.insert(self.prettyGroup, at: 0);
+            self.anchorGroupArr.insert(self.hotGroup, at: 0);
             
             finishCallback();
         }
@@ -124,9 +124,9 @@ extension YLRecommendViewModel {
     }
     
     // 请求无限轮播图的数据
-    func requestCycleViewData(finishCallback : ()->()){
+    func requestCycleViewData(_ finishCallback : @escaping ()->()){
         // http://www.douyutv.com/api/v1/slide/6?version=2.303
-        YLNetWorkTools.requestData(.GET, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.303"]) { (request) in
+        YLNetWorkTools.requestData(.get, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.303"]) { (request) in
             
             // 将request转换成字典类型 (这里因为是选择链，所以校验一下是否有值，没有直接return出去)
             guard let resultDict = request as? [String : NSObject] else { return }

@@ -18,8 +18,12 @@ class YLCollectionGameCell: UICollectionViewCell {
     var anchorGroupM : YLAnchorGroupModel?{
         didSet {
             titleLabel.text = anchorGroupM?.tag_name;
-            let icon_url = NSURL(string: anchorGroupM?.icon_url ?? "");
-            iconImageView.kf_setImageWithURL(icon_url,placeholderImage: UIImage(named: "home_more_btn"));
+            // swift3.0中如果你传个空字符串，系统会定义为他是空的一个字符串，所以这里要判断
+            if let icon_url = URL(string: anchorGroupM?.icon_url ?? "") {
+                iconImageView.kf.setImage(with: icon_url);
+            }else {
+                iconImageView.image = UIImage(named: "home_more_btn");
+            }
         }
     }
     //MARK:- 系统回调

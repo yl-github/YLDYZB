@@ -12,7 +12,7 @@ import UIKit
 // 写 :class 主要是表示只想让类遵守这个协议
 protocol YLPageTitleViewDelegate : class {
     // 其中selectedIndex是表示一个外部参数，index则表示一个内部参数
-    func pageTitleView(titleView : YLPageTitleView,selectedIndex index : Int);
+    func pageTitleView(_ titleView : YLPageTitleView,selectedIndex index : Int);
 }
 
 // MARK:- 定义常量
@@ -25,12 +25,12 @@ private let kSelectColor : (CGFloat,CGFloat,CGFloat) = (255,128,0);
 class YLPageTitleView: UIView {
 
     // 定义属性 -- 这里的定义属性，相当于OC中的@property(strong,)定义属性
-    private var currentIndex : Int = 0;
-    private var titles:[String];
+    fileprivate var currentIndex : Int = 0;
+    fileprivate var titles:[String];
     weak var delegate : YLPageTitleViewDelegate?
     
     // 懒加载属性
-    private lazy var titleScrollView : UIScrollView = {
+    fileprivate lazy var titleScrollView : UIScrollView = {
         let scrollView = UIScrollView();
         scrollView.showsHorizontalScrollIndicator = false;
         scrollView.scrollsToTop = false;
@@ -38,13 +38,13 @@ class YLPageTitleView: UIView {
         return scrollView;
     }();
     
-    private lazy var scrollLine : UIView = {
+    fileprivate lazy var scrollLine : UIView = {
         let scrollLine = UIScrollView();
-        scrollLine.backgroundColor = UIColor.orangeColor();
+        scrollLine.backgroundColor = UIColor.orange;
         return scrollLine;
     }();
     
-    private lazy var titleLabels : [UILabel] = [UILabel]();
+    fileprivate lazy var titleLabels : [UILabel] = [UILabel]();
     
     /**
      *  自定义构造函数  (swfit中自定义构造函数的时候必须重写init?coder函数(required init?(coder aDecoder: NSCoder)))
@@ -66,7 +66,7 @@ class YLPageTitleView: UIView {
 
 extension YLPageTitleView{
     
-    private func setupUI(){
+    fileprivate func setupUI(){
         // 1.添加UIScrollView
         addSubview(titleScrollView);
         titleScrollView.frame = bounds;
@@ -78,22 +78,22 @@ extension YLPageTitleView{
         setupBottomLineAndScrollLine();
     }
     
-    private func setupTitleLables(){
+    fileprivate func setupTitleLables(){
         // 0.确定label的一些frame的值
         let labelW : CGFloat = frame.width / CGFloat(titles.count);
         let labelH : CGFloat = frame.height - kScrollLineH;
         let labelY : CGFloat = 0;
         
-        for (index,title) in titles.enumerate() {
+        for (index,title) in titles.enumerated() {
             // 1.创建UILabel
             let label = UILabel();
             
             // 2.设置Label的属性
             label.text = title;
             label.tag = index;
-            label.font = UIFont.systemFontOfSize(16.0);
+            label.font = UIFont.systemFont(ofSize: 16.0);
             label.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2);
-            label.textAlignment = .Center;
+            label.textAlignment = .center;
             
             // 3.设置label的frame
             let labelX : CGFloat = labelW * CGFloat(index);
@@ -104,17 +104,17 @@ extension YLPageTitleView{
             titleLabels.append(label);
             
             // 5.给label添加手势可以进行交互
-            label.userInteractionEnabled = true;
+            label.isUserInteractionEnabled = true;
             let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleLabelClick(_:)));
             label.addGestureRecognizer(tapGes);
             
         }
     }
     
-    private func setupBottomLineAndScrollLine(){
+    fileprivate func setupBottomLineAndScrollLine(){
         // 1.添加底线
         let bottomLine = UIView();
-        bottomLine.backgroundColor = UIColor.lightGrayColor();
+        bottomLine.backgroundColor = UIColor.lightGray;
         let lineH : CGFloat = 0.5;
         bottomLine.frame = CGRect(x: 0, y: frame.height - lineH, width: frame.width, height: lineH);
         addSubview(bottomLine);
@@ -136,7 +136,7 @@ extension YLPageTitleView{
 //MARK:- 监听label的点击
 extension YLPageTitleView{
     // 使用事件处理的时候前面要加上@objc
-    @objc private func titleLabelClick(tapGes : UITapGestureRecognizer){
+    @objc fileprivate func titleLabelClick(_ tapGes : UITapGestureRecognizer){
         // 0.获取当前Label
         guard let currentLabel = tapGes.view as? UILabel else {return};
         
@@ -155,9 +155,9 @@ extension YLPageTitleView{
         
         // 5.滚动条位置发生改变
         let scrollLineX = CGFloat(currentIndex) * scrollLine.frame.size.width;
-        UIView.animateWithDuration(0.15) {
+        UIView.animate(withDuration: 0.15, animations: {
             self.scrollLine.frame.origin.x = scrollLineX;
-        }
+        }) 
         
         // 6.通知代理做事情
         delegate?.pageTitleView(self, selectedIndex: currentIndex);
@@ -166,7 +166,7 @@ extension YLPageTitleView{
 
 // MARK:- 向外面暴露一个接口(方法)
 extension YLPageTitleView {
-    func setTitleChangeWithProgress(progress:CGFloat,beforeTitleIndex:Int,targetTitleIndex:Int){
+    func setTitleChangeWithProgress(_ progress:CGFloat,beforeTitleIndex:Int,targetTitleIndex:Int){
         
 //        print("progress:\(progress)","beforeTitleIndex:\(beforeTitleIndex)","targetTitleIndex:\(targetTitleIndex)");
         

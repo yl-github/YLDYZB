@@ -40,11 +40,11 @@ class YLAnchorGroupModel: NSObject {
     // 构造函数
     init(dict : [String : NSObject]) {
         super.init();
-        setValuesForKeysWithDictionary(dict);
+        setValuesForKeys(dict);
     }
     
     // 防止多余没用到的属性，在遍历的时候报错
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
     
     /*
     override func setValue(value: AnyObject?, forKey key: String) {

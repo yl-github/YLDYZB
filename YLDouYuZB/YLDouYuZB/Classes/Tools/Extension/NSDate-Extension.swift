@@ -8,10 +8,10 @@
 
 import UIKit
 
-extension NSDate{
-    class func getCurrentTime() -> String{
+extension Date{
+    static func getCurrentTime() -> String{
         // 获取当前的时间
-        let nowDate = NSDate();
+        let nowDate = Date();
         // 获取时间戳
         let interval = Int(nowDate.timeIntervalSince1970);
         

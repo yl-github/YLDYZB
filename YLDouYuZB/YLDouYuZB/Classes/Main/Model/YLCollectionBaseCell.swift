@@ -20,8 +20,8 @@ class YLCollectionBaseCell: UICollectionViewCell {
             guard let anchor = anchor else { return }
             
             // 1.设置房间封面图片 （这里使用到了一个加载网络图片的第三方Kingfirs）
-            guard let iconUrl = NSURL(string: anchor.vertical_src) else { return };
-            iconImg.kf_setImageWithURL(iconUrl);
+            guard let iconUrl = URL(string: anchor.vertical_src) else { return };
+            iconImg.kf.setImage(with: iconUrl);
             
             // 2.设置主播昵称
             anchorNameLabel.text = anchor.nickname;
@@ -33,7 +33,7 @@ class YLCollectionBaseCell: UICollectionViewCell {
             }else {
                 onlineStr = "\(anchor.online)在线";
             }
-            onlineNum.setTitle(onlineStr, forState: .Normal);
+            onlineNum.setTitle(onlineStr, for: UIControlState());
         }
     }
 }

@@ -20,8 +20,8 @@ class YLCollectionCycleCell: UICollectionViewCell {
             // 1.设置标题内容
             cycleTitleLabel.text = cycleModel?.title;
             // 2.设置图片
-            let imgUrl = NSURL(string: cycleModel?.pic_url ?? "");
-            cycleImg.kf_setImageWithURL(imgUrl, placeholderImage: UIImage(named: "Img_default"));
+            let imgUrl = URL(string: cycleModel?.pic_url ?? "");
+            cycleImg.kf.setImage(with: imgUrl, placeholder: UIImage(named: "Img_default"));
         }
     }
     

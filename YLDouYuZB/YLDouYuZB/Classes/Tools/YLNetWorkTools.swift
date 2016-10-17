@@ -11,17 +11,17 @@ import UIKit
 import Alamofire
 
 enum MethodType {
-    case GET
-    case POST
+    case get
+    case post
 }
 class YLNetWorkTools {
-    class func requestData(type : MethodType, URLString : String, parameters : [String : NSString]? = nil, finishedCallback : (request : AnyObject) -> ()){
+    class func requestData(_ type : MethodType, URLString : String, parameters : [String : NSString]? = nil, finishedCallback : @escaping (_ request : Any) -> ()){
         
         // 1.获取类型
-        let methods = type == .GET ? Method.GET : Method.POST;
+        let methods = type == .get ? HTTPMethod.get : HTTPMethod.post;
         
         // 2.发送网络请求
-        Alamofire.request(methods, URLString, parameters: parameters).responseJSON { (response) in
+        Alamofire.request(URLString, method: methods, parameters: parameters).responseJSON { (response) in
             
             // 3.获取结果
             guard let result = response.result.value else{
@@ -30,7 +30,7 @@ class YLNetWorkTools {
             }
             
             // 4.将结果回调出去
-            finishedCallback(request: result);
+            finishedCallback(result);
         }
     }
 }

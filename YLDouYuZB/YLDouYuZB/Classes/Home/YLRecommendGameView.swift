@@ -34,9 +34,10 @@ class YLRecommendGameView: UIView {
     //MARK:- 系统回调方法
     override func awakeFromNib() {
         // 1.移除aotoresizing  ,不让控件随着父控件的拉伸而拉伸
-        autoresizingMask = .None;
+        autoresizingMask = UIViewAutoresizing();
+        
         // 2.注册cell
-        collectionView.registerNib(UINib(nibName: "YLCollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID);
+        collectionView.register(UINib(nibName: "YLCollectionGameCell", bundle: nil), forCellWithReuseIdentifier: kGameCellID);
         
         // 3.设置collectionview的内边距
         collectionView.contentInset = UIEdgeInsets(top: 0, left: kEdgeInsetMargin, bottom: 0, right: kEdgeInsetMargin);
@@ -46,19 +47,19 @@ class YLRecommendGameView: UIView {
 //MARK:- 定义一个快速创建的gameView的方法
 extension YLRecommendGameView {
     class func recommendGameView() -> YLRecommendGameView{
-        return NSBundle.mainBundle().loadNibNamed("YLRecommendGameView", owner: nil, options: nil).first as! YLRecommendGameView;
+        return Bundle.main.loadNibNamed("YLRecommendGameView", owner: nil, options: nil)!.first as! YLRecommendGameView;
     }
 }
 
 //MARK:- 数据源代理方法
 extension YLRecommendGameView : UICollectionViewDataSource {
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return anchorGroupMArr?.count ?? 0;
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(kGameCellID, forIndexPath: indexPath) as! YLCollectionGameCell;
-        cell.anchorGroupM = anchorGroupMArr![indexPath.item];
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGameCellID, for: indexPath) as! YLCollectionGameCell;
+        cell.anchorGroupM = anchorGroupMArr![(indexPath as NSIndexPath).item];
         
         return cell;
     }

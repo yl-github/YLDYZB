@@ -19,17 +19,17 @@ extension UIBarButtonItem{
 //    }
     
     // 方法2.用便利构造器方法
-    convenience init(imageName : String, highImageName : String = "",size : CGSize = CGSizeZero) {
+    convenience init(imageName : String, highImageName : String = "",size : CGSize = CGSize.zero) {
         let btn = UIButton();
-        btn.setImage(UIImage(named: imageName), forState: .Normal);
+        btn.setImage(UIImage(named: imageName), for: UIControlState());
         if highImageName != "" {
             
-            btn.setImage(UIImage(named: highImageName), forState: .Highlighted);
+            btn.setImage(UIImage(named: highImageName), for: .highlighted);
         }
-        if size == CGSizeZero {
+        if size == CGSize.zero {
             btn.sizeToFit();
         }else {
-            btn.frame = CGRect(origin: CGPointZero, size: size);
+            btn.frame = CGRect(origin: CGPoint.zero, size: size);
         }
         self.init(customView:btn);
     }

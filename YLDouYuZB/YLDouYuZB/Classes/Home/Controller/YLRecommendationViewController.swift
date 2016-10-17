@@ -22,10 +22,10 @@ private let kHeaderViewID = "kHeaderViewID"
 class YLRecommendationViewController: UIViewController {
 
     //MARK:- 懒加载YLRecommendViewModel属性
-    private lazy var recommendViewModel : YLRecommendViewModel = YLRecommendViewModel();
+    fileprivate lazy var recommendViewModel : YLRecommendViewModel = YLRecommendViewModel();
     
     //MARK:- 懒加载添加控件
-    private lazy var recommendCollectionView : UICollectionView = {[unowned self] in
+    fileprivate lazy var recommendCollectionView : UICollectionView = {[unowned self] in
         // 1.创建layout
         let layout = UICollectionViewFlowLayout();
         layout.itemSize = CGSize(width: kItemW, height: kNormalItemH);
@@ -40,23 +40,23 @@ class YLRecommendationViewController: UIViewController {
         // 2.创建collectionView
         let recommendCollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout);
         
-        recommendCollectionView.backgroundColor = UIColor.whiteColor();
+        recommendCollectionView.backgroundColor = UIColor.white;
         recommendCollectionView.dataSource = self;
         recommendCollectionView.delegate = self;
         
         // 希望子控件的宽高随着父控件的款高的改变而改变 （或者可以给collectionview做约束）
-        recommendCollectionView.autoresizingMask = [.FlexibleHeight,.FlexibleWidth];
+        recommendCollectionView.autoresizingMask = [.flexibleHeight,.flexibleWidth];
         
         // 注册cell
 //        // 代码注册
 //        recommendCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID);
         // XIB注册
-        recommendCollectionView.registerNib(
+        recommendCollectionView.register(
             UINib(nibName: "YLCollectionNormalCell", bundle: nil), forCellWithReuseIdentifier: kNormalCellID);
-        recommendCollectionView.registerNib(
+        recommendCollectionView.register(
             UINib(nibName: "YLCollectionPrettyCell", bundle: nil), forCellWithReuseIdentifier: kPrettyCellID);
         // 使用XIB自定义创建区头
-        recommendCollectionView.registerNib(
+        recommendCollectionView.register(
             UINib(nibName: "YLCollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID);
         
         // 注册区头
@@ -67,14 +67,14 @@ class YLRecommendationViewController: UIViewController {
     }();
     
     //MARK:- 懒加载创建cycleView
-    private lazy var cycleView : YLRecommendCycleView = {
+    fileprivate lazy var cycleView : YLRecommendCycleView = {
         let cycleView = YLRecommendCycleView.recommendCycleView();
         cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH);
         return cycleView;
     }();
     
     //MARK:- 懒加载创建cycleView
-    private lazy var gameView : YLRecommendGameView = {
+    fileprivate lazy var gameView : YLRecommendGameView = {
         let gameView = YLRecommendGameView.recommendGameView();
         gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH);
         return gameView;
@@ -94,7 +94,7 @@ class YLRecommendationViewController: UIViewController {
 }
 // MARK:- 设置UI界面
 extension YLRecommendationViewController {
-    private func setupUI(){
+    fileprivate func setupUI(){
         // 1.将recommendCollectionView添加到View上
         view.addSubview(recommendCollectionView);
         
@@ -112,7 +112,7 @@ extension YLRecommendationViewController {
 // MARK:- 发送网络请求-请求数据
 extension YLRecommendationViewController {
     // 发送请求
-    private func loadNetWorkData(){
+    fileprivate func loadNetWorkData(){
         // 1.请求推荐数据
         recommendViewModel.requestData {
             // 1.刷新界面
@@ -131,48 +131,48 @@ extension YLRecommendationViewController {
 
 extension YLRecommendationViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return recommendViewModel.anchorGroupArr.count;
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let group = recommendViewModel.anchorGroupArr[section];
         return group.anchorsArr.count;
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // 0.取出对象模型
-        let groupModel = recommendViewModel.anchorGroupArr[indexPath.section];
-        let anchor = groupModel.anchorsArr[indexPath.item];
+        let groupModel = recommendViewModel.anchorGroupArr[(indexPath as NSIndexPath).section];
+        let anchor = groupModel.anchorsArr[(indexPath as NSIndexPath).item];
         
         // 1.定义cell
         var cell : YLCollectionBaseCell;
         
         // 2.根据分区的不同选择不同的cell
-        if indexPath.section == 1 {
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier(kPrettyCellID, forIndexPath: indexPath) as! YLCollectionPrettyCell;
+        if (indexPath as NSIndexPath).section == 1 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! YLCollectionPrettyCell;
         }else {
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier(kNormalCellID, forIndexPath: indexPath) as! YLCollectionNormalCell;
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! YLCollectionNormalCell;
         }
         // 3.传递模型数据
         cell.anchor = anchor;
         return cell;
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
    
         // 1.取出scetion的headerView
-        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: kHeaderViewID, forIndexPath: indexPath) as! YLCollectionHeaderView;
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath) as! YLCollectionHeaderView;
         // 2.给headerView上的控件赋值 (取出模型)
-        headerView.group = recommendViewModel.anchorGroupArr[indexPath.section];
+        headerView.group = recommendViewModel.anchorGroupArr[(indexPath as NSIndexPath).section];
         return headerView;
     
     }
     
     // 这个方法是返回collectionItem的一个大小
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        if indexPath.section == 1 {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (indexPath as NSIndexPath).section == 1 {
             return CGSize(width: kItemW, height: kPrettyItemH);
         }
         return CGSize(width: kItemW, height: kNormalItemH);
