@@ -32,7 +32,7 @@ class YLAnchorModel: NSObject {
     
     
     // 构造函数
-    init(dict : [String : NSObject]) {
+    init(dict : [String : Any]) {
         super.init();
         
         setValuesForKeys(dict);

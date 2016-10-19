@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YLAnchorGroupModel: NSObject {
+class YLAnchorGroupModel: YLBaseGameModel {
     /** 该组中对应的房间信息（数组）*/
     var room_list : [[String : NSObject]]? {
         
@@ -21,40 +21,10 @@ class YLAnchorGroupModel: NSObject {
         }
     }
     
-    /** 该组显示的标题 */
-    var tag_name : String = ""
-    
     /** 该组显示的图标 */
     var icon_name : String = "home_header_normal"
     
-    /** 轮播下面的推荐图标 */
-    var icon_url : String = ""
-   
     /** 定义主播的对象模型数组 */
     lazy var anchorsArr : [YLAnchorModel] = [YLAnchorModel]();
     
-    // 对父类的构造函数重写
-    override init() {
-        
-    }
-    // 构造函数
-    init(dict : [String : NSObject]) {
-        super.init();
-        setValuesForKeys(dict);
-    }
-    
-    // 防止多余没用到的属性，在遍历的时候报错
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
-    
-    /*
-    override func setValue(value: AnyObject?, forKey key: String) {
-        if key == "room_list" {
-            if let dataArray = value as? [[String : NSObject]] {
-                for anchorDict in dataArray {
-                    anchorsArr.append(YLAnchorModel(dict: anchorDict));
-                }
-            }
-        }
-    }
-    */
 }

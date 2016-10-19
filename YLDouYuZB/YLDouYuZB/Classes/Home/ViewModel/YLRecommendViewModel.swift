@@ -17,10 +17,8 @@
 
 import UIKit
 
-class YLRecommendViewModel {
+class YLRecommendViewModel : YLBaseViewModel{
     //MARK:- 懒加载属性
-    /** 存放推荐数据的数组 */
-    lazy var anchorGroupArr : [YLAnchorGroupModel] = [YLAnchorGroupModel]();
     /** 存放轮播数据的数组 */
     lazy var cycleArr : [YLCycleModel] = [YLCycleModel]();
     
@@ -96,22 +94,11 @@ extension YLRecommendViewModel {
         dispatchGroup.enter();
         // 第三部分：请求其他游戏数据
         // http://capi.douyucdn.cn/api/v1/getHotCate?limit=4&offset=0&time=1476080122
-        YLNetWorkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters as [String : NSString]?) { (request) in
+        requestBaseAnchorData(isGroupData: true, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
             
-            // 1.这里的reqest是个AnyObject类型,所以要先将request转换成字典
-            guard let dataDict = request as? [String : NSObject] else{return}
-            
-            // 2.获取字典中的数组
-            guard let dataArray = dataDict["data"] as? [[String : NSObject]] else{return}
-            
-            // 3.遍历数组，获得字典，让后将字典转换成字典模型
-            for dict in dataArray{
-                let groupModel = YLAnchorGroupModel(dict: dict);
-                self.anchorGroupArr.append(groupModel);
-            }
-            // 4.请求完之后，离开任务组
             dispatchGroup.leave();
         }
+        
         // 所有的数据都请求到之后，对数据进行一个排序
         // dispatch_group_notify 监听所有的异步请求全部请求到
         dispatchGroup.notify(queue: DispatchQueue.main) { 

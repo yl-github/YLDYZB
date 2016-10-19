@@ -12,17 +12,8 @@ private let kEdgeInsetMargin : CGFloat = 10
 
 class YLRecommendGameView: UIView {
     //MARK:- 定义属性
-    var anchorGroupMArr : [YLAnchorGroupModel]?{
+    var anchorGroupMArr : [YLBaseGameModel]?{
         didSet {
-            // 删除组中的前两个数据 （热门和颜值）
-            anchorGroupMArr?.removeFirst();
-            anchorGroupMArr?.removeFirst();
-            
-            // 添加更多组
-            let moreGroup = YLAnchorGroupModel();
-            moreGroup.tag_name = "更多";
-            anchorGroupMArr?.append(moreGroup);
-            
             // 刷新界面
             collectionView.reloadData();
         }
@@ -59,7 +50,7 @@ extension YLRecommendGameView : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kGameCellID, for: indexPath) as! YLCollectionGameCell;
-        cell.anchorGroupM = anchorGroupMArr![(indexPath as NSIndexPath).item];
+        cell.gameGroupM = anchorGroupMArr![(indexPath as NSIndexPath).item];
         
         return cell;
     }

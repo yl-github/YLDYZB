@@ -26,12 +26,10 @@ class YLHomeViewController: UIViewController {
         // 2.添加所有的子控制器
         var childVcs = [UIViewController]();
         childVcs.append(YLRecommendationViewController());
-        
-        for _ in 0..<3 {
-            let vc = UIViewController();
-            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)));
-            childVcs.append(vc);
-        }
+        childVcs.append(YLGameViewController());
+        childVcs.append(YLAmuseViewController());
+        childVcs.append(YLFunnyViewController());
+     
     
         let pageContentView = YLPageContentView(frame: contentViewFrame, childVcs: childVcs, parentViewControlle: self);
         pageContentView.delegate = self;

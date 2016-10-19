@@ -12,7 +12,8 @@ class YLCollectionHeaderView: UICollectionReusableView {
 
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var headerImgView: UIImageView!
-
+    @IBOutlet weak var moreBtn: UIButton!
+    
     //MARK:- 定义模型属性
     var group : YLAnchorGroupModel? {
         didSet {
@@ -27,5 +28,13 @@ class YLCollectionHeaderView: UICollectionReusableView {
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
+    }
+}
+
+//MARK:- 快速创建View
+extension YLCollectionHeaderView {
+    class func collectionHeaderView () -> YLCollectionHeaderView{
+        
+        return Bundle.main.loadNibNamed("YLCollectionHeaderView", owner: nil, options: nil)?.first as! YLCollectionHeaderView;
     }
 }
