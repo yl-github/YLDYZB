@@ -26,6 +26,7 @@
 		79131E561DB07FE6000206F4 /* YLRecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79131E551DB07FE6000206F4 /* YLRecommendGameView.xib */; };
 		79131E591DB0A967000206F4 /* YLCollectionGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79131E571DB0A967000206F4 /* YLCollectionGameCell.swift */; };
 		79131E5A1DB0A967000206F4 /* YLCollectionGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79131E581DB0A967000206F4 /* YLCollectionGameCell.xib */; };
+		792630421DB84F7C00B56AB2 /* YLCustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792630411DB84F7C00B56AB2 /* YLCustomNavController.swift */; };
 		792EEC821DB5BAE30065D4DF /* YLAmuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792EEC811DB5BAE30065D4DF /* YLAmuseViewController.swift */; };
 		792EEC841DB5C02B0065D4DF /* YLAmuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792EEC831DB5C02B0065D4DF /* YLAmuseViewModel.swift */; };
 		792EEC861DB5F4250065D4DF /* YLBaseAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792EEC851DB5F4250065D4DF /* YLBaseAnchorViewController.swift */; };
@@ -48,6 +49,9 @@
 		794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794452951D9E487500832E2B /* YLRecommendationViewController.swift */; };
 		79462F6E1DB74197001822D1 /* YLFunnyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79462F6D1DB74197001822D1 /* YLFunnyViewController.swift */; };
 		79462F701DB7463C001822D1 /* YLFunnyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79462F6F1DB7463C001822D1 /* YLFunnyViewModel.swift */; };
+		79462F721DB75FA8001822D1 /* YLBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79462F711DB75FA8001822D1 /* YLBaseViewController.swift */; };
+		79462F781DB774F8001822D1 /* YLRoomShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79462F771DB774F8001822D1 /* YLRoomShowViewController.swift */; };
+		79462F7A1DB77505001822D1 /* YLRoomNormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79462F791DB77505001822D1 /* YLRoomNormalViewController.swift */; };
 		79CC3E3B1DAF1B68004C3560 /* YLRecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC3E3A1DAF1B68004C3560 /* YLRecommendCycleView.swift */; };
 		79CC3E3D1DAF1B83004C3560 /* YLRecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CC3E3C1DAF1B83004C3560 /* YLRecommendCycleView.xib */; };
 		79CC3E3F1DAF5098004C3560 /* YLCycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC3E3E1DAF5098004C3560 /* YLCycleModel.swift */; };
@@ -108,6 +112,7 @@
 		79131E551DB07FE6000206F4 /* YLRecommendGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLRecommendGameView.xib; path = YLDouYuZB/Classes/Home/YLRecommendGameView.xib; sourceTree = SOURCE_ROOT; };
 		79131E571DB0A967000206F4 /* YLCollectionGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLCollectionGameCell.swift; path = YLDouYuZB/Classes/Home/YLCollectionGameCell.swift; sourceTree = SOURCE_ROOT; };
 		79131E581DB0A967000206F4 /* YLCollectionGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLCollectionGameCell.xib; path = YLDouYuZB/Classes/Home/YLCollectionGameCell.xib; sourceTree = SOURCE_ROOT; };
+		792630411DB84F7C00B56AB2 /* YLCustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLCustomNavController.swift; sourceTree = "<group>"; };
 		792EEC811DB5BAE30065D4DF /* YLAmuseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAmuseViewController.swift; sourceTree = "<group>"; };
 		792EEC831DB5C02B0065D4DF /* YLAmuseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAmuseViewModel.swift; sourceTree = "<group>"; };
 		792EEC851DB5F4250065D4DF /* YLBaseAnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLBaseAnchorViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +135,9 @@
 		794452951D9E487500832E2B /* YLRecommendationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRecommendationViewController.swift; sourceTree = "<group>"; };
 		79462F6D1DB74197001822D1 /* YLFunnyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLFunnyViewController.swift; sourceTree = "<group>"; };
 		79462F6F1DB7463C001822D1 /* YLFunnyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLFunnyViewModel.swift; sourceTree = "<group>"; };
+		79462F711DB75FA8001822D1 /* YLBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLBaseViewController.swift; sourceTree = "<group>"; };
+		79462F771DB774F8001822D1 /* YLRoomShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRoomShowViewController.swift; sourceTree = "<group>"; };
+		79462F791DB77505001822D1 /* YLRoomNormalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLRoomNormalViewController.swift; sourceTree = "<group>"; };
 		79CC3E3A1DAF1B68004C3560 /* YLRecommendCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YLRecommendCycleView.swift; path = YLDouYuZB/Classes/Main/Model/YLRecommendCycleView.swift; sourceTree = SOURCE_ROOT; };
 		79CC3E3C1DAF1B83004C3560 /* YLRecommendCycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YLRecommendCycleView.xib; path = YLDouYuZB/Classes/Main/Model/YLRecommendCycleView.xib; sourceTree = SOURCE_ROOT; };
 		79CC3E3E1DAF5098004C3560 /* YLCycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLCycleModel.swift; sourceTree = "<group>"; };
@@ -227,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6D29BC1D912AEB0018518E /* Main */,
+				79462F731DB774DF001822D1 /* Room */,
 				1F6D29B41D912AEA0018518E /* Home */,
 				1F6D29B81D912AEB0018518E /* Live */,
 				1F6D29B01D912AEA0018518E /* Follow */,
@@ -283,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				1F6D29C61D912FDB0018518E /* Home.storyboard */,
+				792630411DB84F7C00B56AB2 /* YLCustomNavController.swift */,
 				1F6D29D51D9136DD0018518E /* YLHomeViewController.swift */,
 				794452951D9E487500832E2B /* YLRecommendationViewController.swift */,
 				7935E49D1DB49EB20065C5B1 /* YLGameViewController.swift */,
@@ -399,6 +409,7 @@
 			children = (
 				1F6D29851D91249D0018518E /* Main.storyboard */,
 				1F6D29D31D91364E0018518E /* YLMainViewController.swift */,
+				79462F711DB75FA8001822D1 /* YLBaseViewController.swift */,
 				792EEC851DB5F4250065D4DF /* YLBaseAnchorViewController.swift */,
 			);
 			path = Controller;
@@ -472,6 +483,39 @@
 			sourceTree = "<group>";
 		};
 		794304361DAB71E3005379C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79462F731DB774DF001822D1 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				79462F741DB774DF001822D1 /* Controller */,
+				79462F751DB774DF001822D1 /* Model */,
+				79462F761DB774DF001822D1 /* View */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		79462F741DB774DF001822D1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				79462F771DB774F8001822D1 /* YLRoomShowViewController.swift */,
+				79462F791DB77505001822D1 /* YLRoomNormalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		79462F751DB774DF001822D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		79462F761DB774DF001822D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -687,9 +731,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79462F721DB75FA8001822D1 /* YLBaseViewController.swift in Sources */,
+				792630421DB84F7C00B56AB2 /* YLCustomNavController.swift in Sources */,
 				7936C6851DB6126B006FE847 /* YLAmuseMenuView.swift in Sources */,
 				1F6D29D61D9136DD0018518E /* YLHomeViewController.swift in Sources */,
 				7943043A1DAB7245005379C9 /* YLAnchorGroupModel.swift in Sources */,
+				79462F781DB774F8001822D1 /* YLRoomShowViewController.swift in Sources */,
 				7943043C1DAB7BD3005379C9 /* YLAnchorModel.swift in Sources */,
 				7935E49E1DB49EB20065C5B1 /* YLGameViewController.swift in Sources */,
 				792EEC841DB5C02B0065D4DF /* YLAmuseViewModel.swift in Sources */,
@@ -711,6 +758,7 @@
 				7935E4A41DB4B2390065C5B1 /* YLBaseGameModel.swift in Sources */,
 				7936C68A1DB62257006FE847 /* YLCollectionAmuseCell.swift in Sources */,
 				79F5F4221DAA218C00B2E68C /* YLCollectionHeaderView.swift in Sources */,
+				79462F7A1DB77505001822D1 /* YLRoomNormalViewController.swift in Sources */,
 				79CC3E3F1DAF5098004C3560 /* YLCycleModel.swift in Sources */,
 				794452961D9E487500832E2B /* YLRecommendationViewController.swift in Sources */,
 				7943042B1DAB3E4C005379C9 /* YLNetWorkTools.swift in Sources */,

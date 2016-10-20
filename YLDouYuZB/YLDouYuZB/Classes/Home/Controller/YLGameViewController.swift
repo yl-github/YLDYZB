@@ -15,7 +15,7 @@ private let kGameViewH : CGFloat = 90
 
 private let kGameCellID = "kGameCellID"
 private let kHeaderViewID = "kHeaderViewID"
-class YLGameViewController: UIViewController {
+class YLGameViewController: YLBaseViewController {
     
     //MARK:- 懒加载创建属性
     lazy var gameViewModel : YLGameViewModel = YLGameViewModel();
@@ -78,12 +78,17 @@ class YLGameViewController: UIViewController {
 
 //MARK:- 设置UI界面
 extension YLGameViewController {
-    func setupUI(){
-        // 将collectionview添加到View上
+    override func setupUI(){
+        // 1.将collectionview在调用父类的setupUI之前传给父类中的contentView，来隐藏他
+        contentView = collectionView;
+        // 2.调用父类的setupUI来显示父类的东西
+        super.setupUI();
+        
+        // 3.将collectionview添加到View上
         self.view.addSubview(collectionView);
-        // 添加topheaderView
+        // 4.添加topheaderView
         collectionView.addSubview(topHeaderView);
-        // 添加gameview
+        // 5.添加gameview
         collectionView.addSubview(gameView);
     }
 }
@@ -91,6 +96,7 @@ extension YLGameViewController {
 //MARK:- 请求数据刷新界面
 extension YLGameViewController {
     func loadAllGameData(){
+        
         gameViewModel.loadAllGameData {
             self.collectionView.reloadData();
             
@@ -103,6 +109,9 @@ extension YLGameViewController {
             */
             let temp = self.gameViewModel.gameDataArr[0..<10]; // 这里是数组的一个区间
             self.gameView.anchorGroupMArr = Array(temp);
+            
+            // 请求完成，停止加载图片的动画
+            self.loadDataFinished();
         }
     }
 }

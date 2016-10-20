@@ -46,6 +46,9 @@ extension YLAmuseViewController {
             var tempArr = self.amuseViewModel.anchorGroupArr;
             tempArr.removeFirst();
             self.amuseView.anchorGroupsMArr = tempArr;
+            
+            // 请求完成，停止加载图片的动画
+            self.loadDataFinished();
         }
     }
 }

@@ -75,6 +75,9 @@ extension YLRecommendationViewController {
             
             // 2.将数据传递给gamecell
             self.gameView.anchorGroupMArr = anchorGroupMArr;
+            
+            // 3.请求完成，停止加载图片的动画
+            self.loadDataFinished();
         }
         
         // 2.请求轮播数据

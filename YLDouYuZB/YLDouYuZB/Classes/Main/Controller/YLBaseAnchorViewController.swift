@@ -19,7 +19,7 @@ let kNormalItemW : CGFloat = (kScreenW - 3 * kMargin) / 2
 let kPrettyItemH = kNormalItemW * 4 / 3
 let kNormalItemH = kNormalItemW * 3 / 4
 
-class YLBaseAnchorViewController: UIViewController {
+class YLBaseAnchorViewController: YLBaseViewController {
     
     //MARK:- 定义属性
     var baseViewModel : YLBaseViewModel = YLBaseViewModel();
@@ -70,7 +70,11 @@ class YLBaseAnchorViewController: UIViewController {
 
 //MARK: -设置UI界面
 extension YLBaseAnchorViewController {
-    func setupUI(){
+    override func setupUI(){
+        // 将collectionview在调用父类的setupUI之前传给父类中的contentView，来隐藏他
+        contentView = recommendCollectionView;
+        
+        super.setupUI();
         self.view.addSubview(recommendCollectionView);
     }
 }
@@ -82,8 +86,8 @@ extension YLBaseAnchorViewController {
     }
 }
 
-//MARK: -遵守uicollectionbview的datasource和delegate代理协议
-extension YLBaseAnchorViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+//MARK: -遵守uicollectionbview的datasource
+extension YLBaseAnchorViewController : UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if baseViewModel.anchorGroupArr.count == 0 {
             return 1;
@@ -120,3 +124,26 @@ extension YLBaseAnchorViewController : UICollectionViewDataSource, UICollectionV
         return headerView;
     }
 }
+
+//MARK:- collectionview的delegate代理协议
+extension YLBaseAnchorViewController : UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let anchorModel = baseViewModel.anchorGroupArr[indexPath.section].anchorsArr[indexPath.item];
+        anchorModel.isVertical == 0 ? pushRoomNormalVc() : presentRoomShowVc();
+        
+    }
+    
+    // 普通的房间控制器  ，电脑直播的
+    private func pushRoomNormalVc(){
+        let roomNormalVc = YLRoomNormalViewController();
+        self.navigationController?.pushViewController(roomNormalVc, animated: true) ;
+    }
+    
+    // 秀场房间控制器
+    private func presentRoomShowVc(){
+        let roomShowVc = YLRoomShowViewController();
+        present(roomShowVc, animated: true, completion: nil);
+    }
+}
+
